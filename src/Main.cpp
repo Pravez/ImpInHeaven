@@ -14,7 +14,8 @@ extern int main(int argc, char **argv) {
     pSurface = SDL_GetWindowSurface(sdlWindow);
     SDL_Event event;
     bool end = false;
-    SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, 255, 0));
+	int color = 255;
+    SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
 
     if (sdlWindow) {
         while (!end) {
@@ -26,6 +27,8 @@ extern int main(int argc, char **argv) {
                             case SDLK_ESCAPE:
                                 end = true;
                                 break;
+							case SDLK_a:
+								color = color == 255 ? 0 : 255;
                             default:break;
                         }
                         break;
@@ -35,6 +38,7 @@ extern int main(int argc, char **argv) {
                 }
 
             }
+			SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, color));
             SDL_UpdateWindowSurface(sdlWindow);
         }
 

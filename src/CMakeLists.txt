@@ -1,18 +1,22 @@
+set(SOURCES Main.cpp screen/Screen.cpp)
+
+add_executable(Game ${SOURCES})
+
 IF (WIN32)
-	set(LIBS ${PROJECT_SOURCE_DIR}/lib/SDL2/x86/SDL2.lib ${PROJECT_SOURCE_DIR}/lib/SDL2/x86/SDL2main.lib)
+	set(LIBS ${PROJECT_SOURCE_DIR}/lib/SDL2/x64/SDL2.lib ${PROJECT_SOURCE_DIR}/lib/SDL2/x64/SDL2main.lib)
 	SET(SDL2_INCLUDE_DIRS ${PROJECT_SOURCE_DIR}/include/SDL2)
+
+	add_custom_command(TARGET Game POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different "${PROJECT_SOURCE_DIR}/lib/SDL2/x64/SDL2.dll"
+        $<TARGET_FILE_DIR:Game>)
 ELSE()
 	INCLUDE(FindPkgConfig)
 	PKG_SEARCH_MODULE(SDL2 REQUIRED sdl2)
 	set(LIBS SDL2 SDL2main)
 ENDIF()
 
-set(SOURCES Main.cpp screen/Screen.cpp)
-
-add_executable(Game ${SOURCES})
-
 INCLUDE_DIRECTORIES(${SDL2_INCLUDE_DIRS})
 
 TARGET_LINK_LIBRARIES(Game ${LIBS})
 
 INSTALL(TARGETS Game DESTINATION bin/)
+	
