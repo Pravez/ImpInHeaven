@@ -1,4 +1,6 @@
 #include "screen/Screen.hpp"
+#include <SDL_image.h>
+
 
 extern int main(int argc, char **argv) {
     Screen screen;
@@ -9,6 +11,16 @@ extern int main(int argc, char **argv) {
     SDL_Window *sdlWindow = NULL;
     sdlWindow = SDL_CreateWindow("ImpInHeaven", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480,
                                  SDL_WINDOW_SHOWN);
+
+	SDL_Surface *image = IMG_Load("resources/images/fox.jpg");
+	if (!image)
+	{
+		printf("IMG_Load: %s\n", IMG_GetError());
+		return 1;
+	}
+
+	// Draws the image on the screen:
+	SDL_Rect rcDest = { 20, 20, 0, 0 };
 
     SDL_Surface *pSurface = NULL;
     pSurface = SDL_GetWindowSurface(sdlWindow);
@@ -38,7 +50,8 @@ extern int main(int argc, char **argv) {
                 }
 
             }
-			SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, color));
+			SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
+			SDL_BlitSurface(image, NULL, pSurface, &rcDest);
             SDL_UpdateWindowSurface(sdlWindow);
         }
 
