@@ -1,19 +1,6 @@
 #include "screen/Screen.hpp"
+#include <SDL_image.h>
 
-SDL_Surface *pSurface;
-
-#define SIZE_X 50
-#define SIZE_Y 50
-#define TILE_WIDTH 4
-#define TILE_HEIGHT 4
-
-void draw(){
-    for(int i = 0;i < SIZE_X;i++){
-        for(int j = 0;j < SIZE_Y;j++){
-            SDL_Rect rect;
-        }
-    }
-}
 
 extern int main(int argc, char **argv) {
     Screen screen;
@@ -25,10 +12,22 @@ extern int main(int argc, char **argv) {
     sdlWindow = SDL_CreateWindow("ImpInHeaven", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480,
                                  SDL_WINDOW_SHOWN);
 
-    pSurface = NULL;
+	SDL_Surface *image = IMG_Load("resources/images/fox.jpg");
+	if (!image)
+	{
+		printf("IMG_Load: %s\n", IMG_GetError());
+		return 1;
+	}
+
+	// Draws the image on the screen:
+	SDL_Rect rcDest = { 20, 20, 0, 0 };
+
+    SDL_Surface *pSurface = NULL;
     pSurface = SDL_GetWindowSurface(sdlWindow);
     SDL_Event event;
     bool end = false;
+	int color = 255;
+    SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
 
     if (sdlWindow) {
         while (!end) {
@@ -40,6 +39,8 @@ extern int main(int argc, char **argv) {
                             case SDLK_ESCAPE:
                                 end = true;
                                 break;
+							case SDLK_a:
+								color = color == 255 ? 0 : 255;
                             default:break;
                         }
                         break;
@@ -49,8 +50,8 @@ extern int main(int argc, char **argv) {
                 }
 
             }
-
-            SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, 255, 0));
+			SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
+			SDL_BlitSurface(image, NULL, pSurface, &rcDest);
             SDL_UpdateWindowSurface(sdlWindow);
         }
 
@@ -60,5 +61,5 @@ extern int main(int argc, char **argv) {
 
     SDL_Quit();
 
-    return EXIT_SUCCESS;
+    return 0;
 }
