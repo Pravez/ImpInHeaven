@@ -1,5 +1,20 @@
 #include "screen/Screen.hpp"
 
+SDL_Surface *pSurface;
+
+#define SIZE_X 50
+#define SIZE_Y 50
+#define TILE_WIDTH 4
+#define TILE_HEIGHT 4
+
+void draw(){
+    for(int i = 0;i < SIZE_X;i++){
+        for(int j = 0;j < SIZE_Y;j++){
+            SDL_Rect rect;
+        }
+    }
+}
+
 extern int main(int argc, char **argv) {
     Screen screen;
 
@@ -10,11 +25,10 @@ extern int main(int argc, char **argv) {
     sdlWindow = SDL_CreateWindow("ImpInHeaven", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480,
                                  SDL_WINDOW_SHOWN);
 
-    SDL_Surface *pSurface = NULL;
+    pSurface = NULL;
     pSurface = SDL_GetWindowSurface(sdlWindow);
     SDL_Event event;
     bool end = false;
-    SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, 255, 0));
 
     if (sdlWindow) {
         while (!end) {
@@ -35,6 +49,8 @@ extern int main(int argc, char **argv) {
                 }
 
             }
+
+            SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, 255, 0));
             SDL_UpdateWindowSurface(sdlWindow);
         }
 
