@@ -1,5 +1,7 @@
 #include "screen/Screen.hpp"
+#include "graphics/Map.hpp"
 #include <SDL_image.h>
+#include <SDL2/SDL.h>
 
 
 extern int main(int argc, char **argv) {
@@ -11,16 +13,19 @@ extern int main(int argc, char **argv) {
     SDL_Window *sdlWindow = NULL;
     sdlWindow = SDL_CreateWindow("ImpInHeaven", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 640, 480,
                                  SDL_WINDOW_SHOWN);
+    SDL_Renderer* renderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED);
+    SDL_SetRenderDrawColor(renderer, 190, 40, 156, 255);
+    SDL_RenderClear(renderer);
 
-	SDL_Surface *image = IMG_Load("resources/images/fox.jpg");
+	/*SDL_Surface *image = IMG_Load("resources/images/fox.jpg");
 	if (!image)
 	{
 		printf("IMG_Load: %s\n", IMG_GetError());
 		return 1;
-	}
+	}*/
 
 	// Draws the image on the screen:
-	SDL_Rect rcDest = { 20, 20, 0, 0 };
+	SDL_Rect rcDest = { 20, 20, 10, 10 };
 
     SDL_Surface *pSurface = NULL;
     pSurface = SDL_GetWindowSurface(sdlWindow);
@@ -28,6 +33,8 @@ extern int main(int argc, char **argv) {
     bool end = false;
 	int color = 255;
     SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
+
+    Map m(20, 20);
 
     if (sdlWindow) {
         while (!end) {
@@ -50,8 +57,11 @@ extern int main(int argc, char **argv) {
                 }
 
             }
+
 			SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
-			SDL_BlitSurface(image, NULL, pSurface, &rcDest);
+            SDL_RenderFillRect(renderer, &rcDest);
+            SDL_RenderPresent(renderer);
+
             SDL_UpdateWindowSurface(sdlWindow);
         }
 

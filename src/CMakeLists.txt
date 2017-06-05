@@ -1,4 +1,4 @@
-set(SOURCES Main.cpp screen/Screen.cpp)
+set(SOURCES Main.cpp screen/Screen.cpp graphics/Map.cpp graphics/Tile.cpp tools/Vector.hpp graphics/Camera.cpp graphics/Camera.hpp)
 
 add_executable(Game ${SOURCES})
 
