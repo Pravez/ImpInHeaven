@@ -18,3 +18,19 @@ int Map::toIndex(Vector2 position) {
 Tile *Map::getTile(Vector2 position) {
     return _tiles[toIndex(position)];
 }
+
+int Map::get_width() const {
+    return _width;
+}
+
+void Map::set_width(int _width) {
+    Map::_width = _width;
+}
+
+int Map::get_height() const {
+    return _height;
+}
+
+void Map::set_height(int _height) {
+    Map::_height = _height;
+}

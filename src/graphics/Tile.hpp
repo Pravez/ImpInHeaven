@@ -8,6 +8,9 @@
 
 #include "../tools/Vector.hpp"
 
+#define TILE_WIDTH 5
+#define TILE_HEIGHT 5
+
 class Tile {
 private:
     Vector2 _position;

@@ -4,7 +4,7 @@
 #include <SDL2/SDL.h>
 
 
-extern int main(int argc, char **argv) {
+int main(int argc, char **argv) {
     Screen screen;
 
     CHECK_INIT_SDL(SDL_Init(SDL_INIT_VIDEO));
@@ -16,6 +16,7 @@ extern int main(int argc, char **argv) {
     SDL_Renderer* renderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED);
     SDL_SetRenderDrawColor(renderer, 190, 40, 156, 255);
     SDL_RenderClear(renderer);
+
 
 	/*SDL_Surface *image = IMG_Load("resources/images/fox.jpg");
 	if (!image)
@@ -30,11 +31,20 @@ extern int main(int argc, char **argv) {
     SDL_Surface *pSurface = NULL;
     pSurface = SDL_GetWindowSurface(sdlWindow);
     SDL_Event event;
+    SDL_Rect pos;
+    SDL_Rect mini;
     bool end = false;
 	int color = 255;
-    SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
+    //SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
+
+    int width, height;
+    SDL_Texture *img = IMG_LoadTexture(renderer, "resources/images/tile.png");
+    SDL_QueryTexture(img, NULL, NULL, &width, &height);
 
     Map m(20, 20);
+
+    mini.h = 4;
+    mini.w = 4;
 
     if (sdlWindow) {
         while (!end) {
@@ -58,11 +68,28 @@ extern int main(int argc, char **argv) {
 
             }
 
-			SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
-            SDL_RenderFillRect(renderer, &rcDest);
-            SDL_RenderPresent(renderer);
 
-            SDL_UpdateWindowSurface(sdlWindow);
+            SDL_RenderClear(renderer);
+            for(int i = 0;i < 2;++i){
+                for(int j = 0;j <2;++j){
+                    pos.x = (i - j) * (width/2)+200;
+                    pos.y = (i + j) * (height/2)+200;
+                    pos.w = width/2;
+                    pos.h = height/2;
+                    mini.x = (i-j)*(width/2)+200;
+                    mini.y = (i+j)*(height/2)+200;
+
+                    //Y'a 2 méthodes pour faire afficher, le RenderCopy (avec un renderer)
+                    //et le FillRect (avec le updateWindowSurface), et j'ai l'impression que les deux
+                    //ne peuvent pas cohabiter ...
+                    SDL_RenderCopy(renderer, img, NULL, &pos);
+                    SDL_FillRect(pSurface, &mini, SDL_MapRGB(pSurface->format, 255, 255, 0));
+                }
+            }
+            
+
+            SDL_RenderPresent(renderer);
+            //SDL_UpdateWindowSurface(sdlWindow);
         }
 
         SDL_DestroyWindow(sdlWindow);
