@@ -2,7 +2,7 @@
 #define IMPINHEAVEN_MAP_HPP
 
 
-#include "../tools/Vector.hpp"
+#include "Vector.hpp"
 #include "Tile.hpp"
 
 class Map {

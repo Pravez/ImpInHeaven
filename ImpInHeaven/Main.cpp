@@ -1,8 +1,9 @@
-#include "screen/Screen.hpp"
-#include "graphics/Map.hpp"
+#include "Screen.hpp"
+#include "Map.hpp"
+#include <string>
 #include <SDL_image.h>
 
-#ifdef WIN32 || _WIN32
+#ifdef WIN32
 #include <SDL.h>
 #else
 #include <SDL2/SDL.h>
@@ -10,7 +11,7 @@
 
 
 int main(int argc, char **argv) {
-    Screen screen;
+    //Screen screen;
 
     CHECK_INIT_SDL(SDL_Init(SDL_INIT_VIDEO));
 
@@ -43,7 +44,12 @@ int main(int argc, char **argv) {
     //SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
 
     int width, height;
-    SDL_Texture *img = IMG_LoadTexture(renderer, "resources/images/tile.png");
+	std::string path = "images/tile.png";
+    SDL_Texture *img = IMG_LoadTexture(renderer, path.c_str());
+	if (img == NULL)
+	{
+		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
+	}
     SDL_QueryTexture(img, NULL, NULL, &width, &height);
 
     Map m(20, 20);

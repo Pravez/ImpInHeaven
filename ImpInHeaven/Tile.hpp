@@ -6,7 +6,7 @@
 #define IMPINHEAVEN_TILE_HPP
 
 
-#include "../tools/Vector.hpp"
+#include "Vector.hpp"
 
 #define TILE_WIDTH 5
 #define TILE_HEIGHT 5
