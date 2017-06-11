@@ -2,11 +2,11 @@
 #include "graphics/Map.hpp"
 #include <SDL_image.h>
 
-#ifdef WIN32 || _WIN32
+//#ifdef WIN32 || _WIN32
 #include <SDL.h>
-#else
-#include <SDL2/SDL.h>
-#endif
+//#else
+//#include <SDL2/SDL.h>
+//#endif
 
 
 int main(int argc, char **argv) {
