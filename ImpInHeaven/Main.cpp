@@ -5,9 +5,9 @@
 
 #ifdef WIN32
 #include <SDL.h>
-#else
-#include <SDL2/SDL.h>
-#endif
+//#else
+//#include <SDL2/SDL.h>
+//#endif
 
 
 int main(int argc, char **argv) {
