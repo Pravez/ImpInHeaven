@@ -24,8 +24,8 @@
 
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
-#define GRID_WIDTH 4
-#define GRID_HEIGHT 4
+#define GRID_WIDTH 5
+#define GRID_HEIGHT 5
 
 int main(int argc, char **argv) {
     //Screen screen;
@@ -108,46 +108,29 @@ int main(int argc, char **argv) {
             for(int i = 0;i < GRID_WIDTH;++i){
                 for(int j = 0;j <GRID_HEIGHT;++j){
 
-					if (i <= GRID_WIDTH / 2) {
-						pos.x = x_mid - ((GRID_WIDTH / 2) - i) * width;
-						if (GRID_WIDTH % 2 == 1) {
-							pos.x -= width / 2;
-						}
+					pos.x = x_mid + (i*(width / 2)) - (width / 2) - ((height / 2)*j);
+					
+					
+					pos.y = y_mid - (2 * height) + j*(height / 2) + i *(width / 2);
+					if (GRID_WIDTH % 2 == 1) {
+						pos.x -= (height / 4);
+						pos.y -= (height / 4);
 					}
-					else {
-						pos.x = x_mid + (i - (GRID_WIDTH / 2)) * width;
-						if (GRID_WIDTH % 2 == 1) {
-							pos.x -= width / 2;
-						}
+					if (GRID_HEIGHT % 2 == 1) {
+						pos.x += (height / 4);
+						pos.y -= (height / 4);
 					}
-
-					if (j <= GRID_HEIGHT / 2) {
-						pos.y = y_mid - ((GRID_HEIGHT / 2) - j) * height;
-						if (GRID_HEIGHT% 2 == 1) {
-							pos.y -= height / 2;
-						}
-					}
-					else {
-						pos.y = y_mid + (j - (GRID_HEIGHT / 2)) * height;
-						if (GRID_HEIGHT % 2 == 1) {
-							pos.y -= height / 2;
-						}
-
-					}
-					//pos.x = (i - j) * (width / 2); +200;
-					//pos.y = (i + j) * (height / 2); +200;
-					pos.w = width;// / 2;
-					pos.h = height;// / 2;
-					mini.x = pos.x;//(i-j)*(width/2)+200;
-					mini.y = pos.y;// (i + j)*(height / 2) + 200;
+					pos.w = width;
+					pos.h = height;
+					mini.x = pos.x;
+					mini.y = pos.y;
 
                     //Y'a 2 méthodes pour faire afficher, le RenderCopy (avec un renderer)
-                    //et le FillRect (avec le updateWindowSurface), et j'ai l'impression que les deux
-                    //ne peuvent pas cohabiter ...
+                    //et le FillRect (avec le updateWindowSurface), et j'ai l'impression que les deux ne peuvent pas cohabiter ...
                     SDL_RenderCopy(renderer, img, NULL, &pos);
                     SDL_FillRect(pSurface, &mini, SDL_MapRGB(pSurface->format, 255, 255, 0));
                 }
-            }            
+            }
 
             SDL_RenderPresent(renderer);
             //SDL_UpdateWindowSurface(sdlWindow);
