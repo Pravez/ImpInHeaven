@@ -22,7 +22,7 @@ private :
 	SDL_Surface * _pSurface;
 	SDL_Texture * _normal_tile;
 
-	Imp* _imp;
+	Imp* _imp; //TODO : put in map and have map in attribute
 	SDL_Texture * _imp_sprite;
 
 	SDL_Rect position_to_isometric(int i, int j);
@@ -32,6 +32,7 @@ public :
 	SDL_Window * getWindow();
 	void addImp(int x, int y);
 	void displayGrid();
+	Imp * getImp();
 
 };
 

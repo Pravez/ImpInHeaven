@@ -8,9 +8,6 @@
    OutputDebugStringW( os_.str().c_str() );  \
 }
 
-//TODO : Remove and use map object
-#define GRID_WIDTH 4
-#define GRID_HEIGHT 4
 
 Screen::Screen(int width, int height) : _width(width), _height(height), _imp(NULL) {
 	_sdlWindow = SDL_CreateWindow("ImpInHeaven", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, _width, _height,
@@ -47,6 +44,10 @@ SDL_Window * Screen::getWindow() {
 	return _sdlWindow;
 }
 
+Imp * Screen::getImp() {
+	return _imp;
+}
+
 void Screen::addImp(int x, int y) {
 	_imp = new Imp(x, y);
 }
@@ -58,8 +59,6 @@ SDL_Rect Screen::position_to_isometric(int i, int j) {
 	int y_mid = _height / 2;
 
 	pos.x = x_mid + (i*(_tile_width / 2)) - (_tile_width / 2) - ((_tile_width / 2)*j);
-
-
 	pos.y = y_mid - (2 * _tile_height) + j*(_tile_height / 2) + i *(_tile_height / 2);
 	if (GRID_WIDTH % 2 == 1) {
 		pos.x -= (_tile_width / 4);

@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
 	//SDL_SetVideoMode(largeur, hauteur, nombre de couleurs, options);
 
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
-	screen->addImp(2,2);
+	screen->addImp(0,2);
 
 
 	// Draws the image on the screen:
@@ -56,6 +56,18 @@ int main(int argc, char **argv) {
                             case SDLK_ESCAPE:
                                 end = true;
                                 break;
+							case SDLK_UP:
+								screen->getImp()->moveUp();
+								break;
+							case SDLK_DOWN:
+								screen->getImp()->moveDown();
+								break;
+							case SDLK_RIGHT:
+								screen->getImp()->moveRight();
+								break;
+							case SDLK_LEFT:
+								screen->getImp()->moveLeft();
+								break;
 							case SDLK_a:
 								color = color == 255 ? 0 : 255;
                             default:break;
