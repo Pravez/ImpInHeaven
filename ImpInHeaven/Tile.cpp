@@ -4,8 +4,12 @@
 
 #include "Tile.hpp"
 
+bool Tile::isTrap() {
+	return _type == TRAP;
+}
+
 bool Tile::isWall() {
-    return Tile::_wall;
+    return _type == WALL;
 }
 
 void Tile::position(Vector2 position) {

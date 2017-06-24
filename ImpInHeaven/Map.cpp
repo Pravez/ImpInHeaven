@@ -6,7 +6,7 @@ Map::Map(int width, int height) {
     _tiles = new Tile*[width * height];
     for(int i = 0;i < width;++i){
         for(int j = 0;i < height;i++){
-            _tiles[toIndex(Vector2(i, j))] = new Tile(Vector2(i, j), false);
+            _tiles[toIndex(Vector2(i, j))] = new Tile(Vector2(i, j), NORMAL);
         }
     }
 }

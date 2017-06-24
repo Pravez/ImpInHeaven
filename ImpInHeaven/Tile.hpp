@@ -5,25 +5,26 @@
 #ifndef IMPINHEAVEN_TILE_HPP
 #define IMPINHEAVEN_TILE_HPP
 
-
 #include "Vector.hpp"
 
 #define TILE_WIDTH 5
 #define TILE_HEIGHT 5
 
+enum TYPE_TILE { NORMAL, TRAP, WALL};
+
 class Tile {
 private:
     Vector2 _position;
     Vector2 _isoPosition;
-    bool _wall;
+    TYPE_TILE _type;
 
 public:
-    Tile(Vector2 position, bool wall) : _position(position), _wall(wall), _isoPosition(Vector2::toIso(position)) {}
-    bool isWall();
+    Tile(Vector2 position, TYPE_TILE type) : _position(position), _type(type), _isoPosition(Vector2::toIso(position)) {}
+	bool isTrap();
+	bool isWall();
     void position(Vector2 position);
     Vector2 position();
     Vector2 to2D(Vector2 point);
 };
-
 
 #endif //IMPINHEAVEN_TILE_HPP
