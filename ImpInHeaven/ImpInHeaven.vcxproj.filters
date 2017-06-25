@@ -16,13 +16,16 @@
     <Filter Include="Fichiers sources\utils">
       <UniqueIdentifier>{f0e890e5-a638-4647-aaae-f58170278136}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\graphics">
-      <UniqueIdentifier>{f52e4ae6-4f48-4ba8-9e17-fb72ab8e9dce}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\scene">
       <UniqueIdentifier>{5fe8bd0a-bbe9-48bd-9735-96941e01b9d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\scene\elements">
+    <Filter Include="Fichiers sources\scene\physic">
+      <UniqueIdentifier>{b082f388-ae71-488d-9575-c650b2e2fde7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\screen">
+      <UniqueIdentifier>{43111e51-42d9-40ca-bc8a-d9c22c0603b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\scene\graphic">
       <UniqueIdentifier>{6dcb93f2-356e-483e-8e05-0b4d85bdff52}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -31,70 +34,88 @@
     <None Include=".gitignore" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Tile.hpp">
-      <Filter>Fichiers sources\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Screen.hpp">
-      <Filter>Fichiers sources\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Vector.hpp">
       <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
     <ClInclude Include="utils.h">
       <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Imp.h">
-      <Filter>Fichiers sources\scene\elements</Filter>
-    </ClInclude>
     <ClInclude Include="DrawableElement.h">
-      <Filter>Fichiers sources\scene\elements</Filter>
+      <Filter>Fichiers sources\scene\graphic</Filter>
     </ClInclude>
     <ClInclude Include="Element.h">
-      <Filter>Fichiers sources\scene\elements</Filter>
+      <Filter>Fichiers sources\scene\graphic</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Fichiers sources\scene</Filter>
     </ClInclude>
     <ClInclude Include="Direction.h">
-      <Filter>Fichiers sources\scene\elements</Filter>
+      <Filter>Fichiers sources\scene\graphic</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>Fichiers sources\scene\elements</Filter>
+      <Filter>Fichiers sources\scene\graphic</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>Fichiers sources\graphics</Filter>
+    <ClInclude Include="Tile.hpp">
+      <Filter>Fichiers sources\screen</Filter>
     </ClInclude>
     <ClInclude Include="Map.hpp">
-      <Filter>Fichiers sources\graphics</Filter>
+      <Filter>Fichiers sources\screen</Filter>
+    </ClInclude>
+    <ClInclude Include="Screen.hpp">
+      <Filter>Fichiers sources\screen</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Fichiers sources\screen</Filter>
+    </ClInclude>
+    <ClInclude Include="Imp.h">
+      <Filter>Fichiers sources\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Fichiers sources\scene\physic</Filter>
+    </ClInclude>
+    <ClInclude Include="MoveableEntity.h">
+      <Filter>Fichiers sources\scene\physic</Filter>
+    </ClInclude>
+    <ClInclude Include="SpriteService.h">
+      <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>Fichiers sources\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Tile.cpp">
-      <Filter>Fichiers sources\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Map.cpp">
-      <Filter>Fichiers sources\graphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Screen.cpp">
-      <Filter>Fichiers sources\graphics</Filter>
-    </ClCompile>
     <ClCompile Include="utils.cpp">
       <Filter>Fichiers sources\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Imp.cpp">
-      <Filter>Fichiers sources\scene\elements</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>Fichiers sources\scene</Filter>
     </ClCompile>
     <ClCompile Include="DrawableElement.cpp">
-      <Filter>Fichiers sources\scene\elements</Filter>
+      <Filter>Fichiers sources\scene\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Map.cpp">
+      <Filter>Fichiers sources\screen</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Fichiers sources\screen</Filter>
+    </ClCompile>
+    <ClCompile Include="Tile.cpp">
+      <Filter>Fichiers sources\screen</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Fichiers sources\screen</Filter>
+    </ClCompile>
+    <ClCompile Include="Imp.cpp">
+      <Filter>Fichiers sources\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Fichiers sources\scene\physic</Filter>
+    </ClCompile>
+    <ClCompile Include="MoveableEntity.cpp">
+      <Filter>Fichiers sources\scene\physic</Filter>
+    </ClCompile>
+    <ClCompile Include="SpriteService.cpp">
+      <Filter>Fichiers sources\utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

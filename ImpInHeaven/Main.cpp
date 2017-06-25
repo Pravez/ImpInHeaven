@@ -16,6 +16,7 @@
 #include <sstream>
 #include "utils.h"
 #include "Scene.h"
+#include "SpriteService.h"
 
 #define DBOUT( s )            \
 {                             \
@@ -39,7 +40,7 @@ int main(int argc, char **argv) {
 
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
 	Scene* scene = new Scene();
-	screen->getMap()->setImp(scene->addPlayer(new Imp(Vector2(7, 7), Vector2(IMP_WIDTH, IMP_HEIGHT), screen->getImpSprite())));
+	screen->getMap()->setImp(scene->addPlayer(new Imp(Vector2(7, 7), Vector2(IMP_WIDTH, IMP_HEIGHT), SpriteService::getSprite("multi_imp"))));
 
 
 	// Draws the image on the screen:

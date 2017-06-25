@@ -19,5 +19,4 @@ void DrawableElement::draw(const Screen* screen) const
 	dest_rect.y = 0;
 
 	SDL_RenderCopy(screen->getRenderer(), this->texture, &dest_rect, &source_rect);
-	//SDL_FillRect(pSurface, &mini, SDL_MapRGB(pSurface->format, 255, 255, 0));
 }

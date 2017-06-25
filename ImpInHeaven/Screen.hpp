@@ -23,12 +23,6 @@ private :
 	SDL_Window * sdlWindow;
 	SDL_Renderer* renderer;
 	SDL_Surface * pSurface;
-	SDL_Texture * normalTile;
-
-	SDL_Texture * impSprite;
-
-private:
-	SDL_Rect positionCenterOnImp(int , int j);
 
 public :
 	Screen(int width, int height);
@@ -40,7 +34,6 @@ public :
 	Vector2 getTileDimensions() const;
 	Vector2 getScreenDimensions() const;
 	SDL_Renderer* getRenderer() const;
-	SDL_Texture* getImpSprite() const;
 
 	void update();
 };

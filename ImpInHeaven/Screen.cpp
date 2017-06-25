@@ -1,5 +1,6 @@
 #include "Screen.hpp"
 #include "utils.h"
+#include "SpriteService.h"
 
 //TODO : remove ?
 #define DBOUT( s )            \
@@ -9,10 +10,6 @@
    OutputDebugStringW( os_.str().c_str() );  \
 }
 
-SDL_Texture* Screen::getImpSprite() const
-{
-	return impSprite;
-}
 
 Screen::Screen(int width, int height) : width(width), height(height), middle(Vector2(GRID_WIDTH/2, GRID_HEIGHT/2)), map( new Map(GRID_WIDTH, GRID_HEIGHT)) {
 	sdlWindow = SDL_CreateWindow("ImpInHeaven", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height,
@@ -22,18 +19,9 @@ Screen::Screen(int width, int height) : width(width), height(height), middle(Vec
 	SDL_RenderClear(renderer);
 	pSurface = SDL_GetWindowSurface(sdlWindow);
 
-	std::string path = std::string(WORKINGDIR_PATH) + "/images/new_tiles.bmp";
-	normalTile = IMG_LoadTexture(renderer, path.c_str());
-	if (normalTile == nullptr) {
-		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
-		//DBOUT("Wrong path : " << IMG_GetError());
-	}
+	auto normalTile = SpriteService::addSprite("/images/new_tiles.bmp", "new_tiles", renderer);
+	SpriteService::addSprite("/images/multi_imp.bmp", "multi_imp", renderer);
 
-	path = std::string(WORKINGDIR_PATH) + "/images/multi_imp.bmp";
-	impSprite = IMG_LoadTexture(renderer, path.c_str());
-	if (impSprite == nullptr) {
-		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
-	}	
 
 	SDL_QueryTexture(normalTile, nullptr, nullptr, &tileWidth, &tileHeight);
 }
@@ -120,8 +108,7 @@ void Screen::drawGrid() {
 			current_tile.x = current_tile.w * static_cast<int>(map->getTile(Vector2(i, j))->getType());
 			current_tile.y = (map->getTile(Vector2(i, j))->getType()) == WALL ? 0 : 25;
 				
-			//Y'a 2 méthodes pour faire afficher, le RenderCopy (avec un renderer) et le FillRect (avec le updateWindowSurface), et j'ai l'impression que les deux ne peuvent pas cohabiter ...
-			SDL_RenderCopy(renderer, normalTile, &current_tile, &pos);
+			SDL_RenderCopy(renderer, SpriteService::getSprite("new_tiles"), &current_tile, &pos);
 		}
 	}
 }

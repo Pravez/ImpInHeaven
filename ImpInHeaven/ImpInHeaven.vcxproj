@@ -147,10 +147,13 @@
     <ClInclude Include="Direction.h" />
     <ClInclude Include="DrawableElement.h" />
     <ClInclude Include="Element.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Imp.h" />
     <ClInclude Include="Map.hpp" />
+    <ClInclude Include="MoveableEntity.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Screen.hpp" />
+    <ClInclude Include="SpriteService.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Tile.hpp" />
     <ClInclude Include="utils.h" />
@@ -159,11 +162,14 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DrawableElement.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Imp.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
+    <ClCompile Include="MoveableEntity.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="SpriteService.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="utils.cpp" />
   </ItemGroup>
