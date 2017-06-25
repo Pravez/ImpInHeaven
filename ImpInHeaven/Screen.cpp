@@ -17,7 +17,7 @@ Screen::Screen(int width, int height) : width(width), height(height), map( new M
 	SDL_RenderClear(renderer);
 	pSurface = SDL_GetWindowSurface(sdlWindow);
 
-	std::string path = std::string(WORKINGDIR_PATH) + "/images/multi_tile.bmp";
+	std::string path = std::string(WORKINGDIR_PATH) + "/images/new_tiles.bmp";
 	normalTile = IMG_LoadTexture(renderer, path.c_str());
 	if (normalTile == nullptr) {
 		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
@@ -89,14 +89,16 @@ void Screen::displayGrid() {
 
 			pos = positionToIsometric(i, j);
 			
+			pos.y = (map->getTile(Vector2(i, j))->getType()) == WALL ? pos.y-25 : pos.y;
+
 			pos.w = tileWidth;
-			pos.h = tileHeight;
+			pos.h = (map->getTile(Vector2(i, j))->getType()) == WALL ? tileHeight+25 : tileHeight;
 
 			SDL_Rect current_tile;
-			current_tile.w = 250;
-			current_tile.h = 125;
+			current_tile.w = 80;
+			current_tile.h =  (map->getTile(Vector2(i, j))->getType()) == WALL ? 150 : 125;
 			current_tile.x = current_tile.w * static_cast<int>(map->getTile(Vector2(i, j))->getType());
-			current_tile.y = 0;
+			current_tile.y = (map->getTile(Vector2(i, j))->getType()) == WALL ? 0 : 25;
 				
 			//Y'a 2 méthodes pour faire afficher, le RenderCopy (avec un renderer) et le FillRect (avec le updateWindowSurface), et j'ai l'impression que les deux ne peuvent pas cohabiter ...
 			SDL_RenderCopy(renderer, normalTile, &current_tile, &pos);
