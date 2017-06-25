@@ -6,13 +6,17 @@
 #include "Tile.hpp"
 #include "Imp.h"
 
+
+#include <time.h> //TODO : remove when random will be not used anymore
+
 class Map {
 private:
     int width;
     int height;
     Tile** tiles;
 
-	Imp* imp; //TODO : put in map and have map in attribute
+
+	Imp* imp;
     int toIndex(Vector2 position) const;
 
 public:
@@ -24,8 +28,13 @@ public:
     int getHeight() const;
     void setHeight(int _height);
 
-	void addImp(int x, int y);
+	void addImp(int x, int y, SDL_Texture* texture);
 	Imp * getImp() const;
+
+	void moveUp();
+	void moveDown();
+	void moveRight();
+	void moveLeft();
 };
 
 

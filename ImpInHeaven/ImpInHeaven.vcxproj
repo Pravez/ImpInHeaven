@@ -142,7 +142,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.hpp" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="DrawableElement.h" />
     <ClInclude Include="Element.h" />
@@ -150,6 +150,7 @@
     <ClInclude Include="Map.hpp" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Screen.hpp" />
+    <ClInclude Include="State.h" />
     <ClInclude Include="Tile.hpp" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="Vector.hpp" />

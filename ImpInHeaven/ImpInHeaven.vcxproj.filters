@@ -30,13 +30,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Camera.hpp">
-      <Filter>Fichiers sources\graphics</Filter>
-    </ClInclude>
     <ClInclude Include="Tile.hpp">
-      <Filter>Fichiers sources\graphics</Filter>
-    </ClInclude>
-    <ClInclude Include="Map.hpp">
       <Filter>Fichiers sources\graphics</Filter>
     </ClInclude>
     <ClInclude Include="Screen.hpp">
@@ -62,6 +56,15 @@
     </ClInclude>
     <ClInclude Include="Direction.h">
       <Filter>Fichiers sources\scene\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Fichiers sources\scene\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Fichiers sources\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="Map.hpp">
+      <Filter>Fichiers sources\graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

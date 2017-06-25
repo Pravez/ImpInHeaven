@@ -1,4 +1,5 @@
 #include "DrawableElement.h"
+#include "Screen.hpp"
 
 void DrawableElement::draw(const Screen* screen) const
 {

@@ -3,13 +3,11 @@
 #include "Element.h"
 #include "Imp.h"
 
-using namespace std;
-
 class Scene
 {
 private:
 	Imp* player;
-	vector<Element> entities;
+	std::vector<Element> entities;
 
 public:
 	Scene();

@@ -6,29 +6,26 @@ Imp::Imp(Vector2 position, Vector2 dimensions, SDL_Texture* texture): DrawableEl
 }
 
 void Imp::moveUp() {
-	if (getY() > 0)
-		getPosition().minus_y(1);
-
-	setDirection(NORTH);
+	getPosition().minus_y(1);
 }
 
 void Imp::moveDown() {
-	if (getY() < GRID_HEIGHT-1)
-		getPosition().plus_y(1);
-
-	setDirection(SOUTH);
+	getPosition().plus_y(1);
 }
 
 void Imp::moveLeft() {
-	if (getX() > 0)
-		getPosition().minus_x(1);
-
-	setDirection(WEST);
+	getPosition().minus_x(1);
 }
 
 void Imp::moveRight() {
-	if (getX() < GRID_WIDTH-1)
-		getPosition().plus_x(1);
+	getPosition().plus_x(1);
+}
 
-	setDirection(EAST);
+void Imp::setState(State state) {
+	this->state = state;
+}
+
+bool Imp::isDead() const
+{
+	return (state == DEAD);
 }

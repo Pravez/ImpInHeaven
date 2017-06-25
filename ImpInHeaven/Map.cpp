@@ -11,12 +11,21 @@ Map::Map(int width, int height) {
         }
     }
 
+	srand(time(NULL));
+	int rdm;
+
 	for (int i = 0; i < width; ++i) {
 		for (int j = 0; j < height; ++j) {
-			tiles[i*width + j]->setType(NORMAL);
-			printf("DEBUG : ON cree tile (%d, %d) avec enum=%d", i, j, tiles[i*width + j]->getType());
+			rdm = rand() % (8 + 0) + 0;
+			if (rdm == 2) {
+				tiles[i*width + j]->setType(TRAP);
+			}
+			if (rdm == 5) {
+				tiles[i*width + j]->setType(WALL);
+			}
 		}
 	}
+	tiles[width / 2 * width + height / 2]->setType(NORMAL);
 }
 
 int Map::toIndex(Vector2 position) const
@@ -55,6 +64,68 @@ Imp * Map::getImp() const
 	return imp;
 }
 
-void Map::addImp(int x, int y) {
-	imp = new Imp(Vector2(x, y));
+void Map::addImp(int x, int y, SDL_Texture* texture) {
+	imp = new Imp(Vector2(x, y), Vector2(40, 80), texture);
+}
+
+
+void Map::moveUp() {
+	int x_imp = imp->getX();
+	int y_imp = imp->getY();
+	TYPE_TILE type = getType(x_imp, y_imp - 1);
+	if (y_imp > 0 &&  type != WALL)
+	{
+		imp->moveUp();
+		if (type == TRAP)
+		{
+			imp->setState(DEAD);
+		}
+	}
+
+	imp->setDirection(NORTH);
+}
+
+void Map::moveDown() {
+	int x_imp = imp->getX();
+	int y_imp = imp->getY();
+	TYPE_TILE type = getType(x_imp, y_imp + 1);
+	if (y_imp < height-1 &&  type != WALL)
+	{
+		imp->moveDown();
+		if (type == TRAP)
+		{
+			imp->setState(DEAD);
+		}
+	}
+	imp->setDirection(SOUTH);
+}
+
+void Map::moveLeft() {
+	int x_imp = imp->getX();
+	int y_imp = imp->getY();
+	TYPE_TILE type = getType(x_imp - 1, y_imp);
+	if (x_imp > 0 && type != WALL)
+	{
+		imp->moveLeft();
+		if (type == TRAP)
+		{
+			imp->setState(DEAD);
+		}
+	}
+	imp->setDirection(WEST);
+}
+
+void Map::moveRight() {
+	int x_imp = imp->getX();
+	int y_imp = imp->getY();
+	TYPE_TILE type = getType(x_imp + 1, y_imp);
+	if (y_imp < width-1 && type != WALL)
+	{
+		imp->moveRight();
+		if (type == TRAP)
+		{
+			imp->setState(DEAD);
+		}
+	}
+	imp->setDirection(EAST);
 }
