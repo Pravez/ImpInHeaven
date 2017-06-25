@@ -8,13 +8,12 @@
    OutputDebugStringW( os_.str().c_str() );  \
 }
 
-Screen::Screen(int width, int height) : _width(width), _height(height), _map( new Map(GRID_WIDTH, GRID_HEIGHT)) {
+Screen::Screen(int width, int height) : _width(width), _height(height), _map( new Map(GRID_WIDTH, GRID_HEIGHT)), _middle(Vector2(GRID_WIDTH/2, GRID_HEIGHT/2)) {
 	_sdlWindow = SDL_CreateWindow("ImpInHeaven", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, _width, _height,
 		SDL_WINDOW_SHOWN);
 	_renderer = SDL_CreateRenderer(_sdlWindow, -1, SDL_RENDERER_ACCELERATED);
 	SDL_SetRenderDrawColor(_renderer, 255, 255, 255, 255);
 	SDL_RenderClear(_renderer);
-
 	_pSurface = SDL_GetWindowSurface(_sdlWindow);
 
 	std::string path = "C:/Users/utilisateur1/Desktop/ImpInHeaven/ImpInHeaven/ImpInHeaven/images/multi_tile.bmp";
@@ -50,8 +49,8 @@ SDL_Rect Screen::position_to_isometric(int i, int j) {
 	int x_mid = _width / 2;
 	int y_mid = _height / 2;
 
-	pos.x = x_mid + (i*(_tile_width / 2)) - (_tile_width / 2) - ((_tile_width / 2)*j);
-	pos.y = y_mid - (_map->get_height()/2 * _tile_height) + j*(_tile_height / 2) + i *(_tile_height / 2);
+	pos.x = x_mid - ((_tile_width / 2)*(j - _middle.y())) -(_tile_width/2) + ((i-_middle.x())*(_tile_width/2));
+	pos.y = y_mid + (i - _middle.x()) *(_tile_height / 2) - (_tile_height / 2) + ((j - _middle.y())*(_tile_height/2));
 	if (_map->get_width() % 2 == 1) {
 		pos.x -= (_tile_width / 4);
 		pos.y -= (_tile_height / 4);
@@ -69,6 +68,15 @@ void Screen::display_grid() {
 	SDL_Rect pos;
 	_tile_width = 200; //make it little for the moment
 	_tile_height = 75;
+
+	int margin = 3; //TODO : change location of this
+	int x_imp= _map->get_imp()->getX(), y_imp= _map->get_imp()->getY();
+	if (x_imp > 0 + margin && x_imp < _map->get_width() - margin - 1) {
+		_middle.x(x_imp);
+	}
+	if (y_imp > 0 + margin && y_imp < _map->get_height() - margin - 1) {
+		_middle.y(y_imp);
+	}
 
 	SDL_RenderClear(_renderer);
 	for (int i = 0; i < _map->get_width(); ++i) {

@@ -4,8 +4,8 @@
 enum DIRECTION {NORTH, EAST, SOUTH, WEST};
 
 //TODO : Remove and use map object
-#define GRID_WIDTH 8
-#define GRID_HEIGHT 8
+#define GRID_WIDTH 15
+#define GRID_HEIGHT 15
 
 class Imp
 {

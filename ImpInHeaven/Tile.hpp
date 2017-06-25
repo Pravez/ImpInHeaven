@@ -19,7 +19,7 @@ private:
 	TYPE_TILE _type;
 
 public:
-	Tile(Vector2 position, TYPE_TILE type) : _position(position), _type(type), _isoPosition(Vector2::toIso(position)) {}
+	Tile(Vector2 position, TYPE_TILE type) : _position(position), _type(NORMAL), _isoPosition(Vector2::toIso(position)) {}
 	bool isTrap();
 	bool isWall();
     void position(Vector2 position);

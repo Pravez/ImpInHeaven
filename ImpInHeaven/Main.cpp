@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
 	//SDL_SetVideoMode(largeur, hauteur, nombre de couleurs, options);
 
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
-	screen->get_map()->add_imp(2,2);
+	screen->get_map()->add_imp(7,7);
 
 
 	// Draws the image on the screen:

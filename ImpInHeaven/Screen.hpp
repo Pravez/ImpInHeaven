@@ -16,6 +16,7 @@ private :
 	int _height;
 	int _tile_width;
 	int _tile_height;
+	Vector2 _middle;
 
 	Map * _map;
 
