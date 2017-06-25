@@ -11,6 +11,9 @@
 class Imp : public DrawableElement
 {
 private:
+	static int ids;
+
+	std::string identifier;
 	State state;
 public:
 	Imp(Vector2 position, Vector2 dimensions, SDL_Texture* texture);
@@ -20,4 +23,5 @@ public:
 	void moveLeft();
 	void setState(State state);
 	bool isDead() const;
+	std::string getIdentifier() const;
 };

@@ -1,16 +1,45 @@
 ﻿#include "Scene.h"
+#include "utils.h"
+#include <algorithm>
+#include <iterator>
 
 Scene::Scene()
 {
-	//this->player = new Imp(Vector2(0, 0), Vector2(0, 0), );
 }
 
-Scene::Scene(Vector2 impPosition)
+void Scene::addEntity(DrawableElement* element)
 {
-	//this->player = new Imp(impPosition.x(), impPosition.y());
+	elements.push_back(element);
 }
 
-void Scene::addEntity(Element entity)
+Imp* Scene::addPlayer(Imp* player)
 {
-	entities.push_back(entity);
+	players.insert(std::pair<std::string, Imp*>(player->getIdentifier(), player));
+	return player;
+}
+
+Imp* Scene::getPlayerById(std::string identifier)
+{
+	return players.at(identifier);
+}
+
+std::vector<Imp*> Scene::getPlayers()
+{
+	std::vector<Imp*> playersVector;
+	playersVector.reserve(players.size());
+	std::transform(players.begin(), players.end(), std::back_inserter(playersVector), [](std::pair<const std::string, Imp*> const &p) { return p.second; });
+	return playersVector;
+}
+
+void Scene::draw(Screen* screen)
+{
+	for(const auto player : players)
+	{
+		player.second->draw(screen);
+	}
+
+	for(const auto element : elements)
+	{
+		element->draw(screen);
+	}
 }

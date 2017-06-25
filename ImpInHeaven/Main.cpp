@@ -15,6 +15,7 @@
 #include <iostream>
 #include <sstream>
 #include "utils.h"
+#include "Scene.h"
 
 #define DBOUT( s )            \
 {                             \
@@ -37,7 +38,8 @@ int main(int argc, char **argv) {
 	SetUpProgram();
 
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
-	screen->getMap()->addImp(7,7, screen->getImpSprite());
+	Scene* scene = new Scene();
+	screen->getMap()->setImp(scene->addPlayer(new Imp(Vector2(7, 7), Vector2(IMP_WIDTH, IMP_HEIGHT), screen->getImpSprite())));
 
 
 	// Draws the image on the screen:
@@ -86,7 +88,10 @@ int main(int argc, char **argv) {
 				}
 
             }
-			screen->displayGrid();
+			screen->drawGrid();
+			scene->draw(screen);
+
+			screen->update();
         }
 
         SDL_DestroyWindow(screen->getWindow());

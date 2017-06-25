@@ -1,7 +1,10 @@
 #include "Imp.h"
 
+int Imp::ids = 0;
+
 Imp::Imp(Vector2 position, Vector2 dimensions, SDL_Texture* texture): DrawableElement(position, dimensions, texture)
 {
+	this->identifier = "player" + ids++;
 	setDirection(NORTH);
 }
 
@@ -25,7 +28,11 @@ void Imp::setState(State state) {
 	this->state = state;
 }
 
-bool Imp::isDead() const
-{
+bool Imp::isDead() const {
 	return (state == DEAD);
+}
+
+std::string Imp::getIdentifier() const
+{
+	return this->identifier;
 }

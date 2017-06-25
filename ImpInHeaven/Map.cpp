@@ -64,12 +64,13 @@ Imp * Map::getImp() const
 	return imp;
 }
 
-void Map::addImp(int x, int y, SDL_Texture* texture) {
-	imp = new Imp(Vector2(x, y), Vector2(40, 80), texture);
+void Map::setImp(Imp* imp)
+{
+	this->imp = imp;
 }
 
-
-void Map::moveUp() {
+void Map::moveUp() const
+{
 	int x_imp = imp->getX();
 	int y_imp = imp->getY();
 	TYPE_TILE type = getType(x_imp, y_imp - 1);

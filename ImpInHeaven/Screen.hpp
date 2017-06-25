@@ -33,7 +33,7 @@ private:
 public :
 	Screen(int width, int height);
 	SDL_Window * getWindow() const;
-	void displayGrid();
+	void drawGrid();
 	Imp* getImp() const;
 	Map* getMap() const;
 	SDL_Rect positionToIsometric(int i, int j) const;
@@ -41,6 +41,8 @@ public :
 	Vector2 getScreenDimensions() const;
 	SDL_Renderer* getRenderer() const;
 	SDL_Texture* getImpSprite() const;
+
+	void update();
 };
 
 

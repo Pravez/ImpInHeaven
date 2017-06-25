@@ -14,7 +14,7 @@ SDL_Texture* Screen::getImpSprite() const
 	return impSprite;
 }
 
-Screen::Screen(int width, int height) : width(width), height(height), map( new Map(GRID_WIDTH, GRID_HEIGHT)), middle(Vector2(GRID_WIDTH/2, GRID_HEIGHT/2)) {
+Screen::Screen(int width, int height) : width(width), height(height), middle(Vector2(GRID_WIDTH/2, GRID_HEIGHT/2)), map( new Map(GRID_WIDTH, GRID_HEIGHT)) {
 	sdlWindow = SDL_CreateWindow("ImpInHeaven", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, width, height,
 		SDL_WINDOW_SHOWN);
 	renderer = SDL_CreateRenderer(sdlWindow, -1, SDL_RENDERER_ACCELERATED);
@@ -88,7 +88,7 @@ SDL_Renderer* Screen::getRenderer() const
 	return this->renderer;
 }
 
-void Screen::displayGrid() {
+void Screen::drawGrid() {
 
 	SDL_Rect pos;
 	tileWidth = 200; //make it little for the moment
@@ -124,10 +124,9 @@ void Screen::displayGrid() {
 			SDL_RenderCopy(renderer, normalTile, &current_tile, &pos);
 		}
 	}
+}
 
-	Imp * imp = getImp();
-	if (imp != nullptr) {
-		imp->draw(this);
-	}
+void Screen::update()
+{
 	SDL_RenderPresent(renderer);
 }

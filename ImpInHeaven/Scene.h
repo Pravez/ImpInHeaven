@@ -2,15 +2,19 @@
 #include <vector>
 #include "Element.h"
 #include "Imp.h"
+#include <map>
 
 class Scene
 {
 private:
-	Imp* player;
-	std::vector<Element> entities;
+	std::map<std::string, Imp*> players;
+	std::vector<DrawableElement	*> elements;
 
 public:
 	Scene();
-	Scene(Vector2 impPosition);
-	void addEntity(Element entity);
+	void addEntity(DrawableElement* element);
+	Imp* addPlayer(Imp* player);
+	Imp* getPlayerById(std::string identifier);
+	std::vector<Imp*> getPlayers();
+	void draw(Screen* screen);
 };
