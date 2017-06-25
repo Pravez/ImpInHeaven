@@ -143,23 +143,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.hpp" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="Imp.h" />
     <ClInclude Include="Map.hpp" />
     <ClInclude Include="Screen.hpp" />
     <ClInclude Include="Tile.hpp" />
-    <ClInclude Include="tools\Vector.hpp" />
+    <ClInclude Include="utils.h" />
+    <ClInclude Include="Vector.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="Imp.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\fox.jpg" />
+    <Image Include="images\imp.bmp" />
+    <Image Include="images\tile.bmp" />
     <Image Include="images\tile.png" />
+    <Image Include="images\tile2.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

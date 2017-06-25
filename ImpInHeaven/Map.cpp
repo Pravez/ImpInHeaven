@@ -2,55 +2,59 @@
 #include <iostream>
 
 Map::Map(int width, int height) {
-    _width = width;
-    _height = height;
-    _tiles = new Tile*[width * height];
-    for(int i = 0;i < width;++i){
-        for(int j = 0;i < height;i++){
-            _tiles[toIndex(Vector2(i, j))] = new Tile(Vector2(i, j), NORMAL);
+	this->width = width;
+	this->height = height;
+    tiles = new Tile*[width * height];
+    for(int i = 0;i < this->width;++i){
+        for(int j = 0;j < this->height;++j){
+            tiles[toIndex(Vector2(i, j))] = new Tile(Vector2(i, j), NORMAL);
         }
     }
 
 	for (int i = 0; i < width; ++i) {
-		for (int j = 0; i < height; i++) {
-			_tiles[i*_width + j]->set_type(NORMAL);
-			printf("DEBUG : ON cree tile (%d, %d) avec enum=%d", i, j, _tiles[i*_width + j]->get_type());
+		for (int j = 0; j < height; ++j) {
+			tiles[i*width + j]->setType(NORMAL);
+			printf("DEBUG : ON cree tile (%d, %d) avec enum=%d", i, j, tiles[i*width + j]->getType());
 		}
 	}
 }
 
-int Map::toIndex(Vector2 position) {
-    return position.x() * _width + position.y();
+int Map::toIndex(Vector2 position) const
+{
+    return position.x() * width + position.y();
 }
 
-TYPE_TILE Map::get_type(int x, int y) {
-	return _tiles[x*_width + y]->get_type();
+TYPE_TILE Map::getType(int x, int y) const
+{
+	return tiles[x*width + y]->getType();
 }
 
-Tile *Map::get_tile(Vector2 position) {
-    return _tiles[toIndex(position)];
+Tile *Map::getTile(Vector2 position) const
+{
+    return tiles[toIndex(position)];
 }
 
-int Map::get_width() const {
-    return _width;
+int Map::getWidth() const {
+    return width;
 }
 
-void Map::set_width(int _width) {
-    Map::_width = _width;
+void Map::setWidth(int _width) {
+    Map::width = _width;
 }
 
-int Map::get_height() const {
-    return _height;
+int Map::getHeight() const {
+    return height;
 }
 
-void Map::set_height(int _height) {
-    Map::_height = _height;
+void Map::setHeight(int _height) {
+    Map::height = _height;
 }
 
-Imp * Map::get_imp() {
-	return _imp;
+Imp * Map::getImp() const
+{
+	return imp;
 }
 
-void Map::add_imp(int x, int y) {
-	_imp = new Imp(x, y);
+void Map::addImp(int x, int y) {
+	imp = new Imp(x, y);
 }

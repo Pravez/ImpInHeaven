@@ -12,30 +12,30 @@
 
 class Screen {
 private :
-	int _width;
-	int _height;
-	int _tile_width;
-	int _tile_height;
-	Vector2 _middle;
+	int width;
+	int height;
+	int tileWidth;
+	int tileHeight;
+	Vector2 middle;
 
-	Map * _map;
+	Map * map;
 
-	SDL_Window * _sdlWindow;
-	SDL_Renderer* _renderer;
-	SDL_Surface * _pSurface;
-	SDL_Texture * _normal_tile;
+	SDL_Window * sdlWindow;
+	SDL_Renderer* renderer;
+	SDL_Surface * pSurface;
+	SDL_Texture * normalTile;
 
-	SDL_Texture * _imp_sprite;
+	SDL_Texture * impSprite;
 
-	SDL_Rect position_to_isometric(int i, int j);
-	SDL_Rect position_center_on_imp(int , int j);
+	SDL_Rect positionToIsometric(int i, int j) const;
+	SDL_Rect positionCenterOnImp(int , int j);
 
 public :
 	Screen(int width, int height);
-	SDL_Window * get_window();
-	void display_grid();
-	Imp * get_imp();
-	Map * get_map();
+	SDL_Window * getWindow() const;
+	void displayGrid();
+	Imp * getImp() const;
+	Map * getMap() const;
 
 };
 

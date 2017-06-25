@@ -24,9 +24,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="tools\Vector.hpp">
-      <Filter>Fichiers sources\utils</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.hpp">
       <Filter>Fichiers sources\graphics</Filter>
     </ClInclude>
@@ -41,6 +38,15 @@
     </ClInclude>
     <ClInclude Include="Imp.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector.hpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Entity.h">
+      <Filter>Fichiers sources</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -62,12 +68,27 @@
     <ClCompile Include="Imp.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="Entity.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\fox.jpg">
       <Filter>Fichiers de ressources</Filter>
     </Image>
     <Image Include="images\tile.png">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="images\imp.bmp">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="images\tile.bmp">
+      <Filter>Fichiers de ressources</Filter>
+    </Image>
+    <Image Include="images\tile2.bmp">
       <Filter>Fichiers de ressources</Filter>
     </Image>
   </ItemGroup>

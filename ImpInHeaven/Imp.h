@@ -1,5 +1,6 @@
 #ifndef IMPINHEAVEN_IMP_HPP
 #define IMPINHEAVEN_IMP_HPP
+#include "Entity.h"
 
 enum DIRECTION {NORTH, EAST, SOUTH, WEST};
 
@@ -7,18 +8,14 @@ enum DIRECTION {NORTH, EAST, SOUTH, WEST};
 #define GRID_WIDTH 15
 #define GRID_HEIGHT 15
 
-class Imp
+class Imp : public Entity
 {
 private:
-	int _x;
-	int _y;
 	DIRECTION _direction;
 
 public:
-	Imp(int x, int y) : _x(x), _y(y), _direction(SOUTH) {};
-	int getX();
-	int getY();
-	DIRECTION get_direction();
+	Imp(int x, int y) : Entity(x, y), _direction(SOUTH) {};
+	DIRECTION getDirection() const;
 	void moveUp();
 	void moveDown();
 	void moveRight();
