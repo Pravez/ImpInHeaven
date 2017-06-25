@@ -6,6 +6,9 @@
 #include "Tile.hpp"
 #include "Imp.h"
 
+
+#include <time.h> //TODO : remove when random will be not used anymore
+
 class Map {
 private:
     int width;
@@ -27,6 +30,11 @@ public:
 
 	void addImp(int x, int y);
 	Imp * getImp() const;
+
+	void moveUp();
+	void moveDown();
+	void moveRight();
+	void moveLeft();
 };
 
 

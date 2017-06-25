@@ -1,34 +1,34 @@
 #include "Imp.h"
 
 void Imp::moveUp() {
-	if (getY() > 0)
-		getPosition().minus_y(1);
-
-	_direction = NORTH;
+	getPosition().minus_y(1);
 }
 
 void Imp::moveDown() {
-	if (getY() < GRID_HEIGHT-1)
-		getPosition().plus_y(1);
-
-	_direction = SOUTH;
+	getPosition().plus_y(1);
 }
 
 void Imp::moveLeft() {
-	if (getX() > 0)
-		getPosition().minus_x(1);
-
-	_direction = WEST;
+	getPosition().minus_x(1);
 }
 
 void Imp::moveRight() {
-	if (getX() < GRID_WIDTH-1)
-		getPosition().plus_x(1);
-
-	_direction = EAST;
+	getPosition().plus_x(1);
 }
 
 DIRECTION Imp::getDirection() const
 {
 	return _direction;
+}
+
+void Imp::setDirection(DIRECTION direction) {
+	this->_direction = direction;
+}
+
+void Imp::setState(STATE state) {
+	this->state = state;
+}
+
+bool Imp::isDead() {
+	return (state == DEAD);
 }

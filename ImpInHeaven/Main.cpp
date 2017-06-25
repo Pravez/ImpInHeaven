@@ -60,16 +60,16 @@ int main(int argc, char **argv) {
                                 end = true;
                                 break;
 							case SDLK_UP:
-								screen->getImp()->moveUp();
+								screen->getMap()->moveUp();
 								break;
 							case SDLK_DOWN:
-								screen->getImp()->moveDown();
+								screen->getMap()->moveDown();
 								break;
 							case SDLK_RIGHT:
-								screen->getImp()->moveRight();
+								screen->getMap()->moveRight();
 								break;
 							case SDLK_LEFT:
-								screen->getImp()->moveLeft();
+								screen->getMap()->moveLeft();
 								break;
 							case SDLK_a:
 								color = color == 255 ? 0 : 255;
@@ -80,6 +80,10 @@ int main(int argc, char **argv) {
                     default:
                         break;
                 }
+				if (screen->getImp()->isDead())
+				{
+					end = true;
+				}
 
             }
 			screen->displayGrid();

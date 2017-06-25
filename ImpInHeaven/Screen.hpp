@@ -28,7 +28,6 @@ private :
 	SDL_Texture * impSprite;
 
 	SDL_Rect positionToIsometric(int i, int j) const;
-	SDL_Rect positionCenterOnImp(int , int j);
 
 public :
 	Screen(int width, int height);

@@ -74,7 +74,7 @@ void Screen::displayGrid() {
 	tileWidth = 200; //make it little for the moment
 	tileHeight = 75;
 
-	int margin = 3; //TODO : change location of this
+	int margin = 1; //TODO : change location of this
 	int x_imp= map->getImp()->getX(), y_imp= map->getImp()->getY();
 	if (x_imp > 0 + margin && x_imp < map->getWidth() - margin - 1) {
 		middle.x(x_imp);
