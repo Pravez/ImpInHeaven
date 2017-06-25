@@ -4,6 +4,14 @@
 
 #include "Tile.hpp"
 
+void Tile::set_type(TYPE_TILE type) {
+	_type = type;
+}
+
+TYPE_TILE Tile::get_type() {
+	return _type;
+}
+
 bool Tile::isTrap() {
 	return _type == TRAP;
 }
@@ -19,5 +27,4 @@ void Tile::position(Vector2 position) {
 Vector2 Tile::position() {
     return Tile::_position;
 }
-
 

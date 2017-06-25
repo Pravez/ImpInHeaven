@@ -1,5 +1,3 @@
-
-
 #ifndef IMPINHEAVEN_IMP_HPP
 #define IMPINHEAVEN_IMP_HPP
 

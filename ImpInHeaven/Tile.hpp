@@ -16,15 +16,17 @@ class Tile {
 private:
     Vector2 _position;
     Vector2 _isoPosition;
-    TYPE_TILE _type;
+	TYPE_TILE _type;
 
 public:
-    Tile(Vector2 position, TYPE_TILE type) : _position(position), _type(type), _isoPosition(Vector2::toIso(position)) {}
+	Tile(Vector2 position, TYPE_TILE type) : _position(position), _type(type), _isoPosition(Vector2::toIso(position)) {}
 	bool isTrap();
 	bool isWall();
     void position(Vector2 position);
+	TYPE_TILE get_type();
+	void set_type(TYPE_TILE type);
     Vector2 position();
-    Vector2 to2D(Vector2 point);
+    //Vector2 to2D(Vector2 point);
 };
 
 #endif //IMPINHEAVEN_TILE_HPP
