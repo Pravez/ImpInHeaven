@@ -1,21 +1,17 @@
 #ifndef IMPINHEAVEN_IMP_HPP
 #define IMPINHEAVEN_IMP_HPP
-#include "Entity.h"
+#include "DrawableElement.h"
+#include "Direction.h"
 
-enum DIRECTION {NORTH, EAST, SOUTH, WEST};
 
 //TODO : Remove and use map object
 #define GRID_WIDTH 15
 #define GRID_HEIGHT 15
 
-class Imp : public Entity
+class Imp : public DrawableElement
 {
-private:
-	DIRECTION _direction;
-
 public:
-	Imp(int x, int y) : Entity(x, y), _direction(SOUTH) {};
-	DIRECTION getDirection() const;
+	Imp(Vector2 position, Vector2 dimensions, SDL_Texture* texture);
 	void moveUp();
 	void moveDown();
 	void moveRight();

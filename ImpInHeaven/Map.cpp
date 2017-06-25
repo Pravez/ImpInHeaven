@@ -56,5 +56,5 @@ Imp * Map::getImp() const
 }
 
 void Map::addImp(int x, int y) {
-	imp = new Imp(x, y);
+	imp = new Imp(Vector2(x, y));
 }

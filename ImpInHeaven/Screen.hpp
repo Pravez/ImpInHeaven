@@ -27,7 +27,6 @@ private :
 
 	SDL_Texture * impSprite;
 
-	SDL_Rect positionToIsometric(int i, int j) const;
 	SDL_Rect positionCenterOnImp(int , int j);
 
 public :
@@ -36,7 +35,10 @@ public :
 	void displayGrid();
 	Imp * getImp() const;
 	Map * getMap() const;
-
+	SDL_Rect positionToIsometric(int i, int j) const;
+	Vector2 getTileDimensions() const;
+	Vector2 getScreenDimensions() const;
+	SDL_Renderer* getRenderer() const;
 };
 
 

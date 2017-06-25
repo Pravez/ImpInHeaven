@@ -68,6 +68,21 @@ SDL_Rect Screen::positionToIsometric(int i, int j) const
 	return pos;
 }
 
+Vector2 Screen::getTileDimensions() const
+{
+	return Vector2(this->tileWidth, this->tileHeight);
+}
+
+Vector2 Screen::getScreenDimensions() const
+{
+	return Vector2(this->width, this->height);
+}
+
+SDL_Renderer* Screen::getRenderer() const
+{
+	return this->renderer;
+}
+
 void Screen::displayGrid() {
 
 	SDL_Rect pos;

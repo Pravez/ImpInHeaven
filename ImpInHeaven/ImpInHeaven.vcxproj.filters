@@ -19,6 +19,12 @@
     <Filter Include="Fichiers sources\graphics">
       <UniqueIdentifier>{f52e4ae6-4f48-4ba8-9e17-fb72ab8e9dce}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\scene">
+      <UniqueIdentifier>{5fe8bd0a-bbe9-48bd-9735-96941e01b9d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\scene\elements">
+      <UniqueIdentifier>{6dcb93f2-356e-483e-8e05-0b4d85bdff52}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -36,17 +42,26 @@
     <ClInclude Include="Screen.hpp">
       <Filter>Fichiers sources\graphics</Filter>
     </ClInclude>
-    <ClInclude Include="Imp.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
     <ClInclude Include="Vector.hpp">
       <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
     <ClInclude Include="utils.h">
       <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Fichiers sources</Filter>
+    <ClInclude Include="Imp.h">
+      <Filter>Fichiers sources\scene\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableElement.h">
+      <Filter>Fichiers sources\scene\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Element.h">
+      <Filter>Fichiers sources\scene\elements</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Fichiers sources\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Direction.h">
+      <Filter>Fichiers sources\scene\elements</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,14 +80,17 @@
     <ClCompile Include="Screen.cpp">
       <Filter>Fichiers sources\graphics</Filter>
     </ClCompile>
-    <ClCompile Include="Imp.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
     <ClCompile Include="utils.cpp">
       <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Imp.cpp">
+      <Filter>Fichiers sources\scene\elements</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>Fichiers sources\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableElement.cpp">
+      <Filter>Fichiers sources\scene\elements</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
