@@ -8,24 +8,24 @@
 
 class Map {
 private:
-    int _width;
-    int _height;
-    Tile** _tiles;
+    int width;
+    int height;
+    Tile** tiles;
 
-	Imp* _imp; //TODO : put in map and have map in attribute
-    int toIndex(Vector2 position);
+	Imp* imp; //TODO : put in map and have map in attribute
+    int toIndex(Vector2 position) const;
 
 public:
     Map(int width, int height);
-    Tile* get_tile(Vector2 position);
-	TYPE_TILE get_type(int x, int y);
-    int get_width() const;
-    void set_width(int _width);
-    int get_height() const;
-    void set_height(int _height);
+    Tile* getTile(Vector2 position) const;
+	TYPE_TILE getType(int x, int y) const;
+    int getWidth() const;
+    void setWidth(int _width);
+    int getHeight() const;
+    void setHeight(int _height);
 
-	void add_imp(int x, int y);
-	Imp * get_imp();
+	void addImp(int x, int y);
+	Imp * getImp() const;
 };
 
 

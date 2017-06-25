@@ -4,27 +4,31 @@
 
 #include "Tile.hpp"
 
-void Tile::set_type(TYPE_TILE type) {
-	_type = type;
+void Tile::setType(TYPE_TILE type) {
+	this->type = type;
 }
 
-TYPE_TILE Tile::get_type() {
-	return _type;
+TYPE_TILE Tile::getType() const
+{
+	return type;
 }
 
-bool Tile::isTrap() {
-	return _type == TRAP;
+bool Tile::isTrap() const
+{
+	return type == TRAP;
 }
 
-bool Tile::isWall() {
-    return _type == WALL;
+bool Tile::isWall() const
+{
+    return type == WALL;
 }
 
-void Tile::position(Vector2 position) {
-    Tile::_position = position;
+void Tile::setPosition(Vector2 position) {
+    this->position = position;
 }
 
-Vector2 Tile::position() {
-    return Tile::_position;
+Vector2 Tile::setPosition() const
+{
+    return position;
 }
 

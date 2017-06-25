@@ -1,42 +1,34 @@
 #include "Imp.h"
 
-int Imp::getX() {
-	return _x;
-}
-
-int Imp::getY() {
-	return _y;
-}
-
-
 void Imp::moveUp() {
-	if (_y > 0)
-		_y--;
+	if (getY() > 0)
+		getPosition().minus_y(1);
 
 	_direction = NORTH;
 }
 
 void Imp::moveDown() {
-	if (_y < GRID_HEIGHT-1)
-		_y++;
+	if (getY() < GRID_HEIGHT-1)
+		getPosition().plus_y(1);
 
 	_direction = SOUTH;
 }
 
 void Imp::moveLeft() {
-	if (_x > 0)
-		_x--;
+	if (getX() > 0)
+		getPosition().minus_x(1);
 
 	_direction = WEST;
 }
 
 void Imp::moveRight() {
-	if (_x < GRID_WIDTH-1)
-		_x++;
+	if (getX() < GRID_WIDTH-1)
+		getPosition().plus_x(1);
 
 	_direction = EAST;
 }
 
-DIRECTION Imp::get_direction() {
+DIRECTION Imp::getDirection() const
+{
 	return _direction;
 }

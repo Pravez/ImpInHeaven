@@ -14,6 +14,7 @@
 #include <Windows.h>
 #include <iostream>
 #include <sstream>
+#include "utils.h"
 
 #define DBOUT( s )            \
 {                             \
@@ -33,8 +34,10 @@ int main(int argc, char **argv) {
 	CHECK_INIT_SDL(SDL_Init(SDL_INIT_VIDEO));// | SDL_INIT_AUDIO));
 	//SDL_SetVideoMode(largeur, hauteur, nombre de couleurs, options);
 
+	SetUpProgram();
+
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
-	screen->get_map()->add_imp(7,7);
+	screen->getMap()->addImp(7,7);
 
 
 	// Draws the image on the screen:
@@ -46,7 +49,7 @@ int main(int argc, char **argv) {
 	
     Map m(20, 20);
 
-    if (screen->get_window()) {
+    if (screen->getWindow()) {
         while (!end) {
             while (SDL_PollEvent(&event)) {
                 /* We are only worried about SDL_KEYDOWN and SDL_KEYUP events */
@@ -57,16 +60,16 @@ int main(int argc, char **argv) {
                                 end = true;
                                 break;
 							case SDLK_UP:
-								screen->get_imp()->moveUp();
+								screen->getImp()->moveUp();
 								break;
 							case SDLK_DOWN:
-								screen->get_imp()->moveDown();
+								screen->getImp()->moveDown();
 								break;
 							case SDLK_RIGHT:
-								screen->get_imp()->moveRight();
+								screen->getImp()->moveRight();
 								break;
 							case SDLK_LEFT:
-								screen->get_imp()->moveLeft();
+								screen->getImp()->moveLeft();
 								break;
 							case SDLK_a:
 								color = color == 255 ? 0 : 255;
@@ -79,13 +82,13 @@ int main(int argc, char **argv) {
                 }
 
             }
-			screen->display_grid();
+			screen->displayGrid();
         }
 
-        SDL_DestroyWindow(screen->get_window());
+        SDL_DestroyWindow(screen->getWindow());
     }
 
-	free(screen);
+	delete(screen);
     SDL_Quit();
 
     return 0;
