@@ -12,7 +12,7 @@ private:
     int _height;
     Tile** _tiles;
 
-	Imp* _imp; //TODO : put in map and have map in attribute
+	Imp* _imp;
     int toIndex(Vector2 position);
 
 public:
