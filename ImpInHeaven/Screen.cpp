@@ -24,7 +24,7 @@ Screen::Screen(int width, int height) : _width(width), _height(height), _map( ne
 		//DBOUT("Wrong path : " << IMG_GetError());
 	}
 
-	path = "C:/Users/utilisateur1/Desktop/ImpInHeaven/ImpInHeaven/ImpInHeaven/images/imp.bmp";
+	path = "C:/Users/utilisateur1/Desktop/ImpInHeaven/ImpInHeaven/ImpInHeaven/images/multi_imp.bmp";
 	_imp_sprite = IMG_LoadTexture(_renderer, path.c_str());
 	if (_imp_sprite == NULL) {
 		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
@@ -51,7 +51,7 @@ SDL_Rect Screen::position_to_isometric(int i, int j) {
 	int y_mid = _height / 2;
 
 	pos.x = x_mid + (i*(_tile_width / 2)) - (_tile_width / 2) - ((_tile_width / 2)*j);
-	pos.y = y_mid - (2 * _tile_height) + j*(_tile_height / 2) + i *(_tile_height / 2);
+	pos.y = y_mid - (_map->get_height()/2 * _tile_height) + j*(_tile_height / 2) + i *(_tile_height / 2);
 	if (_map->get_width() % 2 == 1) {
 		pos.x -= (_tile_width / 4);
 		pos.y -= (_tile_height / 4);
@@ -67,9 +67,6 @@ SDL_Rect Screen::position_to_isometric(int i, int j) {
 void Screen::display_grid() {
 
 	SDL_Rect pos;
-	//SDL_Rect mini;
-	//mini.h = 4;
-	//mini.w = 4;
 	_tile_width = 200; //make it little for the moment
 	_tile_height = 75;
 
@@ -78,10 +75,9 @@ void Screen::display_grid() {
 		for (int j = 0; j < _map->get_height(); ++j) {
 
 			pos = position_to_isometric(i, j);
+			
 			pos.w = _tile_width;
 			pos.h = _tile_height;
-			//mini.x = pos.x;
-			//mini.y = pos.y;
 
 			SDL_Rect current_tile;
 			current_tile.w = 250;
@@ -91,7 +87,6 @@ void Screen::display_grid() {
 				
 			//Y'a 2 méthodes pour faire afficher, le RenderCopy (avec un renderer) et le FillRect (avec le updateWindowSurface), et j'ai l'impression que les deux ne peuvent pas cohabiter ...
 			SDL_RenderCopy(_renderer, _normal_tile, &current_tile, &pos);
-			//SDL_FillRect(_pSurface, &mini, SDL_MapRGB(_pSurface->format, 255, 255, 0));
 		}
 	}
 
@@ -100,15 +95,21 @@ void Screen::display_grid() {
 		int _imp_width = 40; //for the moment, the tile has to be a square
 		int _imp_height = 80;
 		pos = position_to_isometric(imp->getX(), imp->getY());
+		imp->get_direction();
 
 		pos.x +=  _tile_width/2 - _imp_width/2;
 		pos.y -= (_tile_height/2);
+
 		pos.w = _imp_width;
 		pos.h = _imp_height;
-		//mini.x = pos.x;
-		//mini.y = pos.y;
 
-		SDL_RenderCopy(_renderer, _imp_sprite, NULL, &pos);
+		SDL_Rect current_imp;
+		current_imp.w = 75;
+		current_imp.h = 132;
+		current_imp.x = current_imp.w * (int)imp->get_direction();
+		current_imp.y = 0;
+
+		SDL_RenderCopy(_renderer, _imp_sprite, &current_imp, &pos);
 		//SDL_FillRect(_pSurface, &mini, SDL_MapRGB(_pSurface->format, 255, 255, 0));
 	}
 	SDL_RenderPresent(_renderer);
