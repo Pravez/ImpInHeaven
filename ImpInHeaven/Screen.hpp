@@ -33,7 +33,7 @@ public :
 	Vector2 positionToIsometric(int i, int j) const;
 
 	void drawGrid() const;
-	void update() const;
+	void render() const;
 	
 	Vector2 getTileDimensions() const;
 	Vector2 getScreenDimensions() const;

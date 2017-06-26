@@ -76,7 +76,7 @@ void Screen::drawGrid() const
 	}
 }
 
-void Screen::update() const
+void Screen::render() const
 {
 	SDL_RenderPresent(renderer);
 }

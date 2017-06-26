@@ -89,7 +89,7 @@ int main(int argc, char **argv) {
 			screen->drawGrid();
 			scene->draw(screen);
 
-			screen->update();
+			screen->render();
         }
 
         SDL_DestroyWindow(screen->getWindow());
