@@ -24,7 +24,7 @@ Screen::Screen(int width, int height) : width(width), height(height), map( new M
 		//DBOUT("Wrong path : " << IMG_GetError());
 	}
 
-	path = std::string(WORKINGDIR_PATH) + "/images/multi_imp.bmp";
+	path = std::string(WORKINGDIR_PATH) + "/images/imps.bmp";
 	impSprite = IMG_LoadTexture(renderer, path.c_str());
 	if (impSprite == nullptr) {
 		printf("Unable to load image %s! SDL_image Error: %s\n", path.c_str(), IMG_GetError());
@@ -72,7 +72,7 @@ void Screen::displayGrid() {
 
 	SDL_Rect pos;
 	tileWidth = 200; //make it little for the moment
-	tileHeight = 75;
+	tileHeight = 80;
 
 	int margin = 1; //TODO : change location of this
 	int x_imp= map->getImp()->getX(), y_imp= map->getImp()->getY();
@@ -107,7 +107,7 @@ void Screen::displayGrid() {
 
 	Imp * imp = getImp();
 	if (imp != nullptr) {
-		int _imp_width = 40; //for the moment, the tile has to be a square
+		int _imp_width = 50; //for the moment, the tile has to be a square
 		int _imp_height = 80;
 		pos = positionToIsometric(imp->getX(), imp->getY());
 		imp->getDirection();
@@ -119,7 +119,7 @@ void Screen::displayGrid() {
 		pos.h = _imp_height;
 
 		SDL_Rect current_imp;
-		current_imp.w = 75;
+		current_imp.w = 85;
 		current_imp.h = 132;
 		current_imp.x = current_imp.w * static_cast<int>(imp->getDirection());
 		current_imp.y = 0;

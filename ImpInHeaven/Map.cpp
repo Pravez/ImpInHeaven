@@ -72,11 +72,10 @@ void Map::addImp(int x, int y) {
 void Map::moveUp() {
 	int x_imp = imp->getX();
 	int y_imp = imp->getY();
-	TYPE_TILE type = getType(x_imp, y_imp - 1);
-	if (y_imp > 0 &&  type != WALL)
+	if (y_imp > 0 && getType(x_imp, y_imp - 1) != WALL)
 	{
 		imp->moveUp();
-		if (type == TRAP)
+		if (getType(x_imp, y_imp - 1) == TRAP)
 		{
 			imp->setState(DEAD);
 		}
@@ -88,11 +87,10 @@ void Map::moveUp() {
 void Map::moveDown() {
 	int x_imp = imp->getX();
 	int y_imp = imp->getY();
-	TYPE_TILE type = getType(x_imp, y_imp + 1);
-	if (y_imp < height-1 &&  type != WALL)
+	if (y_imp < height-1 && getType(x_imp, y_imp + 1) != WALL)
 	{
 		imp->moveDown();
-		if (type == TRAP)
+		if (getType(x_imp, y_imp + 1) == TRAP)
 		{
 			imp->setState(DEAD);
 		}
@@ -103,11 +101,10 @@ void Map::moveDown() {
 void Map::moveLeft() {
 	int x_imp = imp->getX();
 	int y_imp = imp->getY();
-	TYPE_TILE type = getType(x_imp - 1, y_imp);
-	if (x_imp > 0 && type != WALL)
+	if (x_imp > 0 && getType(x_imp - 1, y_imp) != WALL)
 	{
 		imp->moveLeft();
-		if (type == TRAP)
+		if (getType(x_imp - 1, y_imp) == TRAP)
 		{
 			imp->setState(DEAD);
 		}
@@ -118,11 +115,10 @@ void Map::moveLeft() {
 void Map::moveRight() {
 	int x_imp = imp->getX();
 	int y_imp = imp->getY();
-	TYPE_TILE type = getType(x_imp + 1, y_imp);
-	if (y_imp < width-1 && type != WALL)
+	if (x_imp < width-1 && getType(x_imp + 1, y_imp) != WALL)
 	{
 		imp->moveRight();
-		if (type == TRAP)
+		if (getType(x_imp + 1, y_imp) == TRAP)
 		{
 			imp->setState(DEAD);
 		}
