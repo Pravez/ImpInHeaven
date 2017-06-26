@@ -1,31 +1,27 @@
-#ifndef IMPINHEAVEN_IMP_HPP
-#define IMPINHEAVEN_IMP_HPP
-#include "Entity.h"
+#pragma once
 
-enum DIRECTION {NORTH, EAST, SOUTH, WEST};
-enum STATE {ALIVE, SLEEP, DEAD};
+#include "DrawableElement.h"
+#include "State.h"
+
 
 //TODO : Remove and use map object
 #define GRID_WIDTH 15
 #define GRID_HEIGHT 15
 
-class Imp : public Entity
+class Imp : public DrawableElement
 {
 private:
-	DIRECTION _direction;
-	STATE state;
+	static int ids;
 
+	std::string identifier;
+	State state;
 public:
-	Imp(int x, int y) : Entity(x, y), _direction(SOUTH), state(ALIVE) {};
-	DIRECTION getDirection() const;
+	Imp(Vector2 position, Vector2 dimensions, SDL_Texture* texture);
 	void moveUp();
 	void moveDown();
 	void moveRight();
 	void moveLeft();
-	void setDirection(DIRECTION direction);
-	void setState(STATE state);
-	bool isDead();
+	void setState(State state);
+	bool isDead() const;
+	std::string getIdentifier() const;
 };
-
-
-#endif //IMPINHEAVEN_IMP_HPP

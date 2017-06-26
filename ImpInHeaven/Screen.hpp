@@ -7,6 +7,7 @@
 #include <cstdio>
 
 #include "Map.hpp"
+#include "Camera.h"
 
 #define CHECK_INIT_SDL(func) if(func != 0){ fprintf(stderr, "Failed to init (%s)\n", SDL_GetError()); return -1;}
 
@@ -23,19 +24,25 @@ private :
 	SDL_Window * sdlWindow;
 	SDL_Renderer* renderer;
 	SDL_Surface * pSurface;
-	SDL_Texture * normalTile;
 
-	SDL_Texture * impSprite;
-
-	SDL_Rect positionToIsometric(int i, int j) const;
+	Camera* camera;
 
 public :
 	Screen(int width, int height);
-	SDL_Window * getWindow() const;
-	void displayGrid();
-	Imp * getImp() const;
-	Map * getMap() const;
 
+	Vector2 positionToIsometric(int i, int j) const;
+
+	void drawGrid() const;
+	void render() const;
+	
+	Vector2 getTileDimensions() const;
+	Vector2 getScreenDimensions() const;
+	SDL_Renderer* getRenderer() const;
+	Imp* getImp() const;
+	Map* getMap() const;
+	SDL_Window * getWindow() const;
+
+	void setCamera(Camera* camera);
 };
 
 

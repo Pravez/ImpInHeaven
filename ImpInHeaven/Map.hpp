@@ -28,10 +28,10 @@ public:
     int getHeight() const;
     void setHeight(int _height);
 
-	void addImp(int x, int y);
 	Imp * getImp() const;
+	void setImp(Imp* imp);
 
-	void moveUp();
+	void moveUp() const;
 	void moveDown();
 	void moveRight();
 	void moveLeft();

@@ -64,12 +64,13 @@ Imp * Map::getImp() const
 	return imp;
 }
 
-void Map::addImp(int x, int y) {
-	imp = new Imp(x, y);
+void Map::setImp(Imp* imp)
+{
+	this->imp = imp;
 }
 
-
-void Map::moveUp() {
+void Map::moveUp() const
+{
 	int x_imp = imp->getX();
 	int y_imp = imp->getY();
 	if (y_imp > 0 && getType(x_imp, y_imp - 1) != WALL)

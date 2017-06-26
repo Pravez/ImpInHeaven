@@ -15,6 +15,8 @@
 #include <iostream>
 #include <sstream>
 #include "utils.h"
+#include "Scene.h"
+#include "SpriteService.h"
 
 #define DBOUT( s )            \
 {                             \
@@ -27,28 +29,25 @@
 #define WINDOW_HEIGHT 480
 
 int main(int argc, char **argv) {
-	TCHAR NPath[MAX_PATH];
-	GetCurrentDirectory(MAX_PATH, NPath);
-	//printf("DEBUG : Npath : %s", NPath);
-
 	CHECK_INIT_SDL(SDL_Init(SDL_INIT_VIDEO));// | SDL_INIT_AUDIO));
 	//SDL_SetVideoMode(largeur, hauteur, nombre de couleurs, options);
 
 	SetUpProgram();
 
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
-	screen->getMap()->addImp(7,7);
+	Scene* scene = new Scene();
+	Camera* camera = new Camera(FIXED_MODE, 1, screen->getMap()->getWidth(), screen->getMap()->getHeight());
+	Imp* imp = new Imp(Vector2(7, 7), Vector2(IMP_WIDTH, IMP_HEIGHT), SpriteService::getSprite("multi_imp"));
 
+	screen->getMap()->setImp(scene->addPlayer(imp));
+	screen->setCamera(camera);
+	camera->setTrackingOn(imp);
+		
 
-	// Draws the image on the screen:
-	SDL_Rect rcDest = { 20, 20, 10, 10 };
     SDL_Event event;
     bool end = false;
 	int color = 255;
-    //SDL_FillRect(pSurface, NULL, SDL_MapRGB(pSurface->format, 255, color, 0));
 	
-    Map m(20, 20);
-
     if (screen->getWindow()) {
         while (!end) {
             while (SDL_PollEvent(&event)) {
@@ -86,7 +85,11 @@ int main(int argc, char **argv) {
 				}
 
             }
-			screen->displayGrid();
+			camera->update();
+			screen->drawGrid();
+			scene->draw(screen);
+
+			screen->render();
         }
 
         SDL_DestroyWindow(screen->getWindow());
