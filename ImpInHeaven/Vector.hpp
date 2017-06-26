@@ -9,6 +9,7 @@ private:
     int _y;
 
 public:
+	Vector2() : _x(0), _y(0) {}
     Vector2(int x, int y) : _x(x), _y(y) {}
 
     int x() const {

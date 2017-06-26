@@ -22,80 +22,43 @@ Screen::Screen(int width, int height) : width(width), height(height), middle(Vec
 	auto normalTile = SpriteService::addSprite("/images/new_tiles.bmp", "new_tiles", renderer);
 	SpriteService::addSprite("/images/multi_imp.bmp", "multi_imp", renderer);
 
-
 	SDL_QueryTexture(normalTile, nullptr, nullptr, &tileWidth, &tileHeight);
+
+	tileWidth = 200; //make it little for the moment
+	tileHeight = 75;
 }
 
-SDL_Window * Screen::getWindow() const
+Vector2 Screen::positionToIsometric(int i, int j) const
 {
-	return sdlWindow;
-}
-
-Map * Screen::getMap() const
-{
-	return map;
-}
-
-Imp * Screen::getImp() const
-{
-	return map->getImp();
-}
-
-SDL_Rect Screen::positionToIsometric(int i, int j) const
-{
-	SDL_Rect pos;
+	Vector2 pos;
 	int x_mid = width / 2;
 	int y_mid = height / 2;
 
-	pos.x = x_mid - ((tileWidth / 2)*(j - middle.y())) -(tileWidth/2) + ((i-middle.x())*(tileWidth/2));
-	pos.y = y_mid + (i - middle.x()) *(tileHeight / 2) - (tileHeight / 2) + ((j - middle.y())*(tileHeight/2));
+	Vector2 cameraPosition = camera->getPosition();
+
+	pos.x(x_mid - ((tileWidth / 2)*(j - cameraPosition.y())) -(tileWidth/2) + ((i- cameraPosition.x())*(tileWidth/2)));
+	pos.y(y_mid + (i - cameraPosition.x()) *(tileHeight / 2) - (tileHeight / 2) + ((j - cameraPosition.y())*(tileHeight/2)));
 	if (map->getWidth() % 2 == 1) {
-		pos.x -= (tileWidth / 4);
-		pos.y -= (tileHeight / 4);
+		pos.minus_x(tileWidth / 4);
+		pos.minus_y(tileHeight / 4);
 	}
 	if (map->getHeight() % 2 == 1) {
-		pos.x += (tileWidth / 4);
-		pos.y -= (tileHeight / 4);
+		pos.plus_x(tileWidth / 4);
+		pos.minus_y(tileHeight / 4);
 	}
 
 	return pos;
 }
 
-Vector2 Screen::getTileDimensions() const
+void Screen::drawGrid() const
 {
-	return Vector2(this->tileWidth, this->tileHeight);
-}
-
-Vector2 Screen::getScreenDimensions() const
-{
-	return Vector2(this->width, this->height);
-}
-
-SDL_Renderer* Screen::getRenderer() const
-{
-	return this->renderer;
-}
-
-void Screen::drawGrid() {
-
 	SDL_Rect pos;
-	tileWidth = 200; //make it little for the moment
-	tileHeight = 75;
-
-	int margin = 1; //TODO : change location of this
-	int x_imp= map->getImp()->getX(), y_imp= map->getImp()->getY();
-	if (x_imp > 0 + margin && x_imp < map->getWidth() - margin - 1) {
-		middle.x(x_imp);
-	}
-	if (y_imp > 0 + margin && y_imp < map->getHeight() - margin - 1) {
-		middle.y(y_imp);
-	}
 
 	SDL_RenderClear(renderer);
 	for (int i = 0; i < map->getWidth(); ++i) {
 		for (int j = 0; j < map->getHeight(); ++j) {
 
-			pos = positionToIsometric(i, j);
+			[i, j, &pos](Vector2 position) { pos.x = position.x(); pos.y = position.y(); } (positionToIsometric(i, j));
 			
 			pos.y = (map->getTile(Vector2(i, j))->getType()) == WALL ? pos.y-25 : pos.y;
 
@@ -113,7 +76,42 @@ void Screen::drawGrid() {
 	}
 }
 
-void Screen::update()
+void Screen::update() const
 {
 	SDL_RenderPresent(renderer);
+}
+
+SDL_Window * Screen::getWindow() const
+{
+	return sdlWindow;
+}
+
+void Screen::setCamera(Camera* camera)
+{
+	this->camera = camera;
+}
+
+Map * Screen::getMap() const
+{
+	return map;
+}
+
+Imp * Screen::getImp() const
+{
+	return map->getImp();
+}
+
+Vector2 Screen::getTileDimensions() const
+{
+	return Vector2(this->tileWidth, this->tileHeight);
+}
+
+Vector2 Screen::getScreenDimensions() const
+{
+	return Vector2(this->width, this->height);
+}
+
+SDL_Renderer* Screen::getRenderer() const
+{
+	return this->renderer;
 }
