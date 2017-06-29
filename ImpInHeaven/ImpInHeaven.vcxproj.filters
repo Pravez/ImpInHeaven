@@ -79,6 +79,12 @@
     <ClInclude Include="SpriteService.h">
       <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>Fichiers sources\scene\physic</Filter>
+    </ClInclude>
+    <ClInclude Include="Bird.h">
+      <Filter>Fichiers sources\scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -116,6 +122,9 @@
     </ClCompile>
     <ClCompile Include="SpriteService.cpp">
       <Filter>Fichiers sources\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="Bird.cpp">
+      <Filter>Fichiers sources\scene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

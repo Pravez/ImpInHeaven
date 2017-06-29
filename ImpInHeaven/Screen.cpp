@@ -21,7 +21,8 @@ Screen::Screen(int width, int height) : width(width), height(height), middle(Vec
 
 
 	auto normalTile = SpriteService::addSprite("/images/new_tiles.bmp", "new_tiles", renderer);
-	SpriteService::addSprite("/images/imps.bmp", "multi_imp", renderer);
+	SpriteService::addSprite("/images/imps.bmp", "imp", renderer);
+	SpriteService::addSprite("/images/multi_imp.bmp", "bird", renderer);
 
 	SDL_QueryTexture(normalTile, nullptr, nullptr, &tileWidth, &tileHeight);
 

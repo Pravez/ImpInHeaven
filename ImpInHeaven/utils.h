@@ -17,6 +17,8 @@ extern char WORKINGDIR_PATH[MAX_PATH];
 #define IMP_WIDTH 55
 #define IMP_HEIGHT 80
 
+#define BIRD_WIDTH 40
+#define BIRD_HEIGHT 70
 
 void SetUpProgram();
 

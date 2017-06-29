@@ -4,6 +4,7 @@
 Map::Map(int width, int height) {
 	this->width = width;
 	this->height = height;
+	this->nb_monster_left = 0;
     tiles = new Tile*[width * height];
     for(int i = 0;i < this->width;++i){
         for(int j = 0;j < this->height;++j){
@@ -11,7 +12,6 @@ Map::Map(int width, int height) {
         }
     }
 
-	srand(time(NULL));
 	int rdm;
 
 	for (int i = 0; i < width; ++i) {
@@ -67,6 +67,13 @@ Imp * Map::getImp() const
 void Map::setImp(Imp* imp)
 {
 	this->imp = imp;
+}
+
+
+void Map::addMonster(Monster* monster)
+{
+	this->nb_monster_left++;
+	monsters.push_back(monster);
 }
 
 void Map::moveUp() const
@@ -125,4 +132,63 @@ void Map::moveRight() {
 		}
 	}
 	imp->setDirection(EAST);
+}
+
+/*void Map::moveMonsterUp(std::string identifiant)
+{
+	Monster * monster = NULL;
+	for (unsigned int i = 0; i<this->nb_monster_left; ++i)
+	{
+		if (monsters[i]->getIdentifier() == identifiant)
+			monster = monsters[i];
+	}
+	if (monster == NULL) { //TODO :ERROR : invalid identifier
+	};
+
+	int x_monster = monster->getX();
+	int y_monster = monster->getY();
+	if (y_monster > 0 && getType(x_monster, y_monster - 1) != WALL)
+	{
+		monster->moveUp();
+		if (getType(x_monster, y_monster - 1) == TRAP)
+		{
+			monster->setState(DEAD);
+		}
+	}
+
+	monster->setDirection(NORTH);
+}
+
+void Map::moveMonsterDown(std::string identifiant)
+{
+	Monster * monster = NULL;
+	//TODO get Monster by id
+	for (unsigned int i = 0; i<this->nb_monster_left; ++i)
+	{
+		if (monsters[i]->getIdentifier() == identifiant)
+			monster = monsters[i];
+	}
+	if (monster == NULL) { //TODO :ERROR : invalid identifier
+	};
+
+		int x_monster = monster->getX();
+		int y_monster = monster->getY();
+		if (y_monster < height - 1 && getType(x_monster, y_monster + 1) != WALL)
+		{
+			monster->moveDown();
+			if (getType(x_monster, y_monster + 1) == TRAP)
+			{
+				monster->setState(DEAD);
+			}
+		}
+		monster->setDirection(SOUTH);
+}*/
+
+void Map::updateMonsters()
+{
+
+	for (unsigned int i = 0; i<this->nb_monster_left; ++i)
+	{
+		monsters[i]->doAction();// this);
+	}
 }

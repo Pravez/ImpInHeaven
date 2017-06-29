@@ -5,18 +5,19 @@
 #include "Vector.hpp"
 #include "Tile.hpp"
 #include "Imp.h"
+#include "Monster.h"
 
-
-#include <time.h> //TODO : remove when random will be not used anymore
-
+#include <vector>
 class Map {
 private:
     int width;
     int height;
     Tile** tiles;
 
-
 	Imp* imp;
+	std::vector<Monster*> monsters;
+	unsigned int nb_monster_left;
+
     int toIndex(Vector2 position) const;
 
 public:
@@ -31,10 +32,16 @@ public:
 	Imp * getImp() const;
 	void setImp(Imp* imp);
 
+	void addMonster(Monster* monster);
+	void updateMonsters();
+
 	void moveUp() const;
 	void moveDown();
 	void moveRight();
 	void moveLeft();
+
+	/*void moveMonsterUp(std::string identifiant);
+	void moveMonsterDown(std::string identifiant);*/
 };
 
 

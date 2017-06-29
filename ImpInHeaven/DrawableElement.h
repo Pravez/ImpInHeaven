@@ -7,7 +7,7 @@ class Screen;
 
 class DrawableElement : public Element
 {
-private:
+protected:
 	SDL_Texture* texture;
 
 public:

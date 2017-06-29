@@ -143,6 +143,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bird.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="DrawableElement.h" />
@@ -150,6 +151,7 @@
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Imp.h" />
     <ClInclude Include="Map.hpp" />
+    <ClInclude Include="Monster.h" />
     <ClInclude Include="MoveableEntity.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Screen.hpp" />
@@ -160,6 +162,7 @@
     <ClInclude Include="Vector.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DrawableElement.cpp" />
     <ClCompile Include="Entity.cpp" />

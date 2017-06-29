@@ -8,7 +8,7 @@
 class Element
 {
 
-private:
+protected:
 	Vector2 position;
 	Vector2 dimensions;
 
