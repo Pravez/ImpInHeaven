@@ -85,6 +85,9 @@
     <ClInclude Include="Bird.h">
       <Filter>Fichiers sources\scene</Filter>
     </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Fichiers sources\scene\physic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -125,6 +128,9 @@
     </ClCompile>
     <ClCompile Include="Bird.cpp">
       <Filter>Fichiers sources\scene</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Fichiers sources\scene\physic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

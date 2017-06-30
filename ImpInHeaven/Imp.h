@@ -2,6 +2,7 @@
 
 #include "DrawableElement.h"
 #include "State.h"
+#include "MoveableEntity.h"
 
 
 //TODO : Remove and use map object

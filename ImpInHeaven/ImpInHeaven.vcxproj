@@ -160,6 +160,7 @@
     <ClInclude Include="Tile.hpp" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="Vector.hpp" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Bird.cpp" />
@@ -175,6 +176,7 @@
     <ClCompile Include="SpriteService.cpp" />
     <ClCompile Include="Tile.cpp" />
     <ClCompile Include="utils.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="images\fox.jpg" />
