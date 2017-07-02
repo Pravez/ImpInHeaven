@@ -8,17 +8,17 @@
 class Entity
 {
 private:
-	Vector2 position;
+	Vector2<int> position;
 	SDL_Rect bounds;
 
 public:
 	virtual ~Entity() = default;
-	Entity(Vector2 position);
-	Vector2 getPosition() const;
+	Entity(Vector2<int> position);
+	Vector2<int> getPosition() const;
 	SDL_Rect getBounds() const;
 	
 	void setBounds(int x, int y, int width, int height);
-	void setPosition(Vector2 position);
+	void setPosition(Vector2<int> position);
 	void setPositionX(int x);
 	void setPositionY(int y);
 

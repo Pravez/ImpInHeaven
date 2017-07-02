@@ -23,11 +23,11 @@ bool Tile::isWall() const
     return type == WALL;
 }
 
-void Tile::setPosition(Vector2 position) {
+void Tile::setPosition(Vector2<int> position) {
     this->position = position;
 }
 
-Vector2 Tile::setPosition() const
+Vector2<int> Tile::setPosition() const
 {
     return position;
 }

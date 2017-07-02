@@ -19,14 +19,41 @@
     <Filter Include="Fichiers sources\scene">
       <UniqueIdentifier>{5fe8bd0a-bbe9-48bd-9735-96941e01b9d4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\scene\physic">
-      <UniqueIdentifier>{b082f388-ae71-488d-9575-c650b2e2fde7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\screen">
       <UniqueIdentifier>{43111e51-42d9-40ca-bc8a-d9c22c0603b6}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\scene\graphic">
+    <Filter Include="Fichiers sources\components">
+      <UniqueIdentifier>{00999dcd-72c3-497e-8540-c6b8a5578df5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\components\physics">
+      <UniqueIdentifier>{4f6f24a9-9d30-49fe-9d80-62e5c49cfdc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\components\graphics">
+      <UniqueIdentifier>{3d086f35-e55e-4c07-9ac6-0ef793a90713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\old">
+      <UniqueIdentifier>{9a8c977c-c43e-4668-a98f-cbf41d8e5636}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\old\graphic">
       <UniqueIdentifier>{6dcb93f2-356e-483e-8e05-0b4d85bdff52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\old\physic">
+      <UniqueIdentifier>{b082f388-ae71-488d-9575-c650b2e2fde7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\components\io">
+      <UniqueIdentifier>{5e86bbe7-be0c-4b78-8355-0b3681fb5801}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\components\events">
+      <UniqueIdentifier>{0761f313-f84c-4331-bf0c-ab5d6a54ee0e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\components\base">
+      <UniqueIdentifier>{8ba1adb5-2061-4f04-8e9b-e69acf8e94cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\game">
+      <UniqueIdentifier>{971e31d4-afc8-4499-bac2-a2b1ac19e286}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\game\entities">
+      <UniqueIdentifier>{73fa0117-f1b6-4a75-8a9e-825815b8e1e3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -41,19 +68,19 @@
       <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
     <ClInclude Include="DrawableElement.h">
-      <Filter>Fichiers sources\scene\graphic</Filter>
+      <Filter>Fichiers sources\old\graphic</Filter>
     </ClInclude>
     <ClInclude Include="Element.h">
-      <Filter>Fichiers sources\scene\graphic</Filter>
+      <Filter>Fichiers sources\old\graphic</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>Fichiers sources\scene</Filter>
     </ClInclude>
     <ClInclude Include="Direction.h">
-      <Filter>Fichiers sources\scene\graphic</Filter>
+      <Filter>Fichiers sources\old\graphic</Filter>
     </ClInclude>
     <ClInclude Include="State.h">
-      <Filter>Fichiers sources\scene\graphic</Filter>
+      <Filter>Fichiers sources\old\graphic</Filter>
     </ClInclude>
     <ClInclude Include="Tile.hpp">
       <Filter>Fichiers sources\screen</Filter>
@@ -71,22 +98,55 @@
       <Filter>Fichiers sources\scene</Filter>
     </ClInclude>
     <ClInclude Include="Entity.h">
-      <Filter>Fichiers sources\scene\physic</Filter>
+      <Filter>Fichiers sources\old\physic</Filter>
     </ClInclude>
     <ClInclude Include="MoveableEntity.h">
-      <Filter>Fichiers sources\scene\physic</Filter>
+      <Filter>Fichiers sources\old\physic</Filter>
     </ClInclude>
     <ClInclude Include="SpriteService.h">
       <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
     <ClInclude Include="Monster.h">
-      <Filter>Fichiers sources\scene\physic</Filter>
+      <Filter>Fichiers sources\old\physic</Filter>
     </ClInclude>
     <ClInclude Include="Bird.h">
       <Filter>Fichiers sources\scene</Filter>
     </ClInclude>
+    <ClInclude Include="GameElement.h">
+      <Filter>Fichiers sources\components\base</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicalComponent.h">
+      <Filter>Fichiers sources\components\graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="MovementComponent.h">
+      <Filter>Fichiers sources\components\physics</Filter>
+    </ClInclude>
+    <ClInclude Include="DataAccessorComponent.h">
+      <Filter>Fichiers sources\components\base</Filter>
+    </ClInclude>
+    <ClInclude Include="DataModifierComponent.h">
+      <Filter>Fichiers sources\components\base</Filter>
+    </ClInclude>
+    <ClInclude Include="GameComponent.h">
+      <Filter>Fichiers sources\components\base</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyboardEventComponent.h">
+      <Filter>Fichiers sources\components\io</Filter>
+    </ClInclude>
+    <ClInclude Include="EventListenerComponent.h">
+      <Filter>Fichiers sources\components\io</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEvent.h">
+      <Filter>Fichiers sources\components\events</Filter>
+    </ClInclude>
     <ClInclude Include="World.h">
-      <Filter>Fichiers sources\scene\physic</Filter>
+      <Filter>Fichiers sources\game</Filter>
+    </ClInclude>
+    <ClInclude Include="EntityFactory.h">
+      <Filter>Fichiers sources\game\entities</Filter>
+    </ClInclude>
+    <ClInclude Include="GameEntity.h">
+      <Filter>Fichiers sources\game\entities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -100,7 +160,7 @@
       <Filter>Fichiers sources\scene</Filter>
     </ClCompile>
     <ClCompile Include="DrawableElement.cpp">
-      <Filter>Fichiers sources\scene\graphic</Filter>
+      <Filter>Fichiers sources\old\graphic</Filter>
     </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>Fichiers sources\screen</Filter>
@@ -118,10 +178,10 @@
       <Filter>Fichiers sources\scene</Filter>
     </ClCompile>
     <ClCompile Include="Entity.cpp">
-      <Filter>Fichiers sources\scene\physic</Filter>
+      <Filter>Fichiers sources\old\physic</Filter>
     </ClCompile>
     <ClCompile Include="MoveableEntity.cpp">
-      <Filter>Fichiers sources\scene\physic</Filter>
+      <Filter>Fichiers sources\old\physic</Filter>
     </ClCompile>
     <ClCompile Include="SpriteService.cpp">
       <Filter>Fichiers sources\utils</Filter>
@@ -129,8 +189,35 @@
     <ClCompile Include="Bird.cpp">
       <Filter>Fichiers sources\scene</Filter>
     </ClCompile>
+    <ClCompile Include="GameElement.cpp">
+      <Filter>Fichiers sources\components\base</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicalComponent.cpp">
+      <Filter>Fichiers sources\components\graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementComponent.cpp">
+      <Filter>Fichiers sources\components\physics</Filter>
+    </ClCompile>
+    <ClCompile Include="DataModifierComponent.cpp">
+      <Filter>Fichiers sources\components\base</Filter>
+    </ClCompile>
+    <ClCompile Include="GameComponent.cpp">
+      <Filter>Fichiers sources\components\base</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardEventComponent.cpp">
+      <Filter>Fichiers sources\components\io</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEvent.cpp">
+      <Filter>Fichiers sources\components\events</Filter>
+    </ClCompile>
     <ClCompile Include="World.cpp">
-      <Filter>Fichiers sources\scene\physic</Filter>
+      <Filter>Fichiers sources\game</Filter>
+    </ClCompile>
+    <ClCompile Include="EntityFactory.cpp">
+      <Filter>Fichiers sources\game\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="GameEntity.cpp">
+      <Filter>Fichiers sources\game\entities</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

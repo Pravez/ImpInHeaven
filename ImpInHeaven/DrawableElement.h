@@ -11,6 +11,6 @@ protected:
 	SDL_Texture* texture;
 
 public:
-	DrawableElement(Vector2 position, Vector2 dimensions, SDL_Texture* texture) : Element(position, dimensions), texture(texture) {}
+	DrawableElement(Vector2<int> position, Vector2<int> dimensions, SDL_Texture* texture) : Element(position, dimensions), texture(texture) {}
 	void draw(const Screen* screen) const;
 };

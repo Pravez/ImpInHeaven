@@ -8,7 +8,7 @@ Map::Map(int width, int height) {
     tiles = new Tile*[width * height];
     for(int i = 0;i < this->width;++i){
         for(int j = 0;j < this->height;++j){
-            tiles[toIndex(Vector2(i, j))] = new Tile(Vector2(i, j), NORMAL);
+            tiles[toIndex(Vector2<int>(i, j))] = new Tile(Vector2<int>(i, j), NORMAL);
         }
     }
 
@@ -28,7 +28,7 @@ Map::Map(int width, int height) {
 	tiles[width / 2 * width + height / 2]->setType(NORMAL);
 }
 
-int Map::toIndex(Vector2 position) const
+int Map::toIndex(Vector2<int> position) const
 {
     return position.x() * width + position.y();
 }
@@ -38,7 +38,7 @@ TYPE_TILE Map::getType(int x, int y) const
 	return tiles[x*width + y]->getType();
 }
 
-Tile *Map::getTile(Vector2 position) const
+Tile *Map::getTile(Vector2<int> position) const
 {
     return tiles[toIndex(position)];
 }
@@ -57,6 +57,16 @@ int Map::getHeight() const {
 
 void Map::setHeight(int _height) {
     Map::height = _height;
+}
+
+bool Map::isTrap(Vector2<int> position) const
+{
+	return getType(position.x(), position.y()) == TRAP;
+}
+
+bool Map::isWall(Vector2<int> position) const
+{
+	return getType(position.x(), position.y()) == WALL;
 }
 
 Imp * Map::getImp() const

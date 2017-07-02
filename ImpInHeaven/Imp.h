@@ -6,8 +6,6 @@
 
 
 //TODO : Remove and use map object
-#define GRID_WIDTH 15
-#define GRID_HEIGHT 15
 
 class Imp : public DrawableElement
 {
@@ -17,7 +15,7 @@ private:
 	std::string identifier;
 	State state;
 public:
-	Imp(Vector2 position, Vector2 dimensions, SDL_Texture* texture);
+	Imp(Vector2<int> position, Vector2<int> dimensions, SDL_Texture* texture);
 	void moveUp();
 	void moveDown();
 	void moveRight();

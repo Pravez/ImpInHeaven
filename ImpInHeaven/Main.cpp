@@ -18,6 +18,8 @@
 #include "utils.h"
 #include "Scene.h"
 #include "SpriteService.h"
+#include "World.h"
+#include "EntityFactory.h"
 
 #define DBOUT( s )            \
 {                             \
@@ -38,13 +40,20 @@ int main(int argc, char **argv) {
 
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
 	Scene* scene = new Scene();
-	Camera* camera = new Camera(FIXED_MODE, 1, screen->getMap()->getWidth(), screen->getMap()->getHeight());
-	Imp* imp = new Imp(Vector2(7, 7), Vector2(IMP_WIDTH, IMP_HEIGHT), SpriteService::getSprite("imp"));
-	Bird* bird = new Bird(Vector2(9, 9), Vector2(BIRD_WIDTH, BIRD_HEIGHT), SpriteService::getSprite("bird"));
+	Map* map = new Map(GRID_WIDTH, GRID_HEIGHT);
+	Camera* camera = new Camera(FIXED_MODE, 1, map->getWidth(), map->getHeight());
+	/*Imp* imp = new Imp(Vector2<int>(7, 7), Vector2<int>(IMP_WIDTH, IMP_HEIGHT), SpriteService::getSprite("imp"));
+	Bird* bird = new Bird(Vector2<int>(9, 9), Vector2<int>(BIRD_WIDTH, BIRD_HEIGHT), SpriteService::getSprite("bird"));*/
 
-	screen->getMap()->setImp(scene->addPlayer(imp));
-	screen->getMap()->addMonster(scene->addMonster(bird));
+	World* world = new World();
+	GameElement* imp = EntityFactory::createPlayerEntity(screen, SpriteService::getSprite("imp"), Vector2<int>(7, 7));
+	world->setMap(map);
+	world->addElement(imp);;
+
+	/*screen->getMap()->setImp(scene->addPlayer(imp));
+	screen->getMap()->addMonster(scene->addMonster(bird));*/
 	screen->setCamera(camera);
+	screen->setMap(map);
 	camera->setTrackingOn(imp);
 		
 
@@ -55,8 +64,10 @@ int main(int argc, char **argv) {
     if (screen->getWindow()) {
         while (!end) {
             while (SDL_PollEvent(&event)) {
+				world->handleEvent(&event);
+
                 /* We are only worried about SDL_KEYDOWN and SDL_KEYUP events */
-                switch (event.type) {
+                /*switch (event.type) {
                     case SDL_KEYDOWN:
                         switch(event.key.keysym.sym){
                             case SDLK_ESCAPE:
@@ -82,17 +93,18 @@ int main(int argc, char **argv) {
 
                     default:
                         break;
-                }
-				if (screen->getImp()->isDead())
+                }*/
+				if (imp->getState() == DEAD)
 				{
 					end = true;
 				}
 
             }
-			screen->getMap()->updateMonsters();
-			camera->update();
+			//screen->getMap()->updateMonsters();
 			screen->drawGrid();
-			scene->draw(screen);
+			world->update();
+			camera->update();
+			//scene->draw(screen);
 
 			screen->render();
         }

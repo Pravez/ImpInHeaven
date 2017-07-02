@@ -14,7 +14,7 @@ private:
 	State state;
 
 public:
-	Monster(Vector2 position, Vector2 dimensions, SDL_Texture* texture) : DrawableElement(position, dimensions, texture) { ids = 0; identifier = "monster" + ids++; setDirection(NORTH); };
+	Monster(Vector2<int> position, Vector2<int> dimensions, SDL_Texture* texture) : DrawableElement(position, dimensions, texture) { ids = 0; identifier = "monster" + ids++; setDirection(NORTH); };
 	virtual ~Monster() {};
 
 	virtual void doAction() =0;

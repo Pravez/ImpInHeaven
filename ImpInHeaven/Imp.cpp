@@ -2,7 +2,7 @@
 
 int Imp::ids = 0;
 
-Imp::Imp(Vector2 position, Vector2 dimensions, SDL_Texture* texture): DrawableElement(position, dimensions, texture)
+Imp::Imp(Vector2<int> position, Vector2<int> dimensions, SDL_Texture* texture): DrawableElement(position, dimensions, texture)
 {
 	this->identifier = "player" + ids++;
 	setDirection(NORTH);

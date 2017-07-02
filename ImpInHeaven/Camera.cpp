@@ -1,7 +1,7 @@
 #include "Camera.h"
-#include <map>
+#include "GameElement.h"
 
-void Camera::setTrackingOn(Element* element)
+void Camera::setTrackingOn(GameElement* element)
 {
 	this->tracked = element;
 }
@@ -11,11 +11,11 @@ void Camera::update()
 	switch(mode)
 	{
 	case FIXED_MODE:
-		if (tracked->getX() > 0 + margin && tracked->getX() < viewportTileWidth - margin - 1) {
-			position.x(tracked->getX());
+		if (tracked->getPositionX() > 0 + margin && tracked->getPositionX() < viewportTileWidth - margin - 1) {
+			position.x(tracked->getPositionX());
 		}
-		if (tracked->getY() > 0 + margin && tracked->getY() < viewportTileHeight - margin - 1) {
-			position.y(tracked->getY());
+		if (tracked->getPositionY() > 0 + margin && tracked->getPositionY() < viewportTileHeight - margin - 1) {
+			position.y(tracked->getPositionY());
 		}
 		break;
 	default:
@@ -24,7 +24,7 @@ void Camera::update()
 	
 }
 
-Vector2 Camera::getPosition() const
+Vector2<int> Camera::getPosition() const
 {
 	return position;
 }

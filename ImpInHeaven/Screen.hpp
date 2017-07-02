@@ -17,7 +17,7 @@ private :
 	int height;
 	int tileWidth;
 	int tileHeight;
-	Vector2 middle;
+	Vector2<int> middle;
 
 	Map * map;
 
@@ -30,19 +30,19 @@ private :
 public :
 	Screen(int width, int height);
 
-	Vector2 positionToIsometric(int i, int j) const;
+	Vector2<int> positionToIsometric(int i, int j) const;
 
 	void drawGrid() const;
 	void render() const;
 	
-	Vector2 getTileDimensions() const;
-	Vector2 getScreenDimensions() const;
+	Vector2<int> getTileDimensions() const;
+	Vector2<int> getScreenDimensions() const;
 	SDL_Renderer* getRenderer() const;
 	Imp* getImp() const;
-	Map* getMap() const;
 	SDL_Window * getWindow() const;
 
 	void setCamera(Camera* camera);
+	void setMap(Map* map);
 };
 
 

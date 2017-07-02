@@ -1,9 +1,9 @@
 ﻿#include "MoveableEntity.h"
 
-MoveableEntity::MoveableEntity(Vector2 position) : Entity(position)
+MoveableEntity::MoveableEntity(Vector2<int> position) : Entity(position)
 {
 	direction = NORTH;
-	speed = Vector2(0, 0);
+	speed = Vector2<int>(0, 0);
 }
 
 Direction MoveableEntity::getDirection() const
@@ -11,7 +11,7 @@ Direction MoveableEntity::getDirection() const
 	return direction;
 }
 
-Vector2 MoveableEntity::getSpeed() const
+Vector2<int> MoveableEntity::getSpeed() const
 {
 	return speed;
 }
@@ -21,7 +21,7 @@ void MoveableEntity::setDirection(Direction direction)
 	this->direction = direction;
 }
 
-void MoveableEntity::setSpeed(Vector2 speed)
+void MoveableEntity::setSpeed(Vector2<int> speed)
 {
 	this->speed.x(speed.x());
 	this->speed.y(speed.y());

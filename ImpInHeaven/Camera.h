@@ -5,26 +5,26 @@
 
 enum CameraMode { FIXED_MODE };
 
-class Imp;
+class GameElement;
 
 class Camera {
 private:
-	Vector2 position;
+	Vector2<int> position;
 	int margin;
 	int viewportTileWidth;
 	int viewportTileHeight;
 		
 	CameraMode mode;
 
-	Element* tracked;
+	GameElement* tracked;
 public:
 	Camera(CameraMode mode, int margin, int viewportTileWidth, int viewportTileHeight)
-			: position(Vector2(0, 0)), margin(margin), viewportTileWidth(viewportTileWidth), 
+			: position(Vector2<int>(0, 0)), margin(margin), viewportTileWidth(viewportTileWidth),
 				viewportTileHeight(viewportTileHeight), mode(mode), tracked(nullptr) {}
 
-	void setTrackingOn(Element* element);
+	void setTrackingOn(GameElement* element);
 	void update();
-	Vector2 getPosition() const;
+	Vector2<int> getPosition() const;
 };
 
 

@@ -6,7 +6,7 @@ class Bird : public Monster
 {
 	private:
 	public:
-		Bird(Vector2 position, Vector2 dimensions, SDL_Texture* texture);
+		Bird(Vector2<int> position, Vector2<int> dimensions, SDL_Texture* texture);
 		void doAction();
 		void draw(const Screen* screen) const;
 };

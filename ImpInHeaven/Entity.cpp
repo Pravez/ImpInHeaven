@@ -1,6 +1,6 @@
 ﻿#include "Entity.h"
 
-Entity::Entity(Vector2 position) : position(position)
+Entity::Entity(Vector2<int> position) : position(position)
 {
 	//Bounds qualifies the real physic boundaries (for collisions ...)
 	bounds.x = position.x() - DEFAULT_WIDTH/2;
@@ -9,7 +9,7 @@ Entity::Entity(Vector2 position) : position(position)
 	bounds.h = DEFAULT_HEIGHT;
 }
 
-Vector2 Entity::getPosition() const
+Vector2<int> Entity::getPosition() const
 {
 	return position;
 }
@@ -27,7 +27,7 @@ void Entity::setBounds(int x, int y, int width, int height)
 	bounds.h = height;
 }
 
-void Entity::setPosition(Vector2 position)
+void Entity::setPosition(Vector2<int> position)
 {
 	this->position.x(position.x());
 	this->position.y(position.y());

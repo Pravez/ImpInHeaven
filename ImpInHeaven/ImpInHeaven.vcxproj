@@ -145,14 +145,25 @@
   <ItemGroup>
     <ClInclude Include="Bird.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="DataAccessorComponent.h" />
+    <ClInclude Include="DataModifierComponent.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="DrawableElement.h" />
     <ClInclude Include="Element.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="EntityFactory.h" />
+    <ClInclude Include="EventListenerComponent.h" />
+    <ClInclude Include="GameComponent.h" />
+    <ClInclude Include="GameElement.h" />
+    <ClInclude Include="GameEntity.h" />
+    <ClInclude Include="GameEvent.h" />
+    <ClInclude Include="GraphicalComponent.h" />
     <ClInclude Include="Imp.h" />
+    <ClInclude Include="KeyboardEventComponent.h" />
     <ClInclude Include="Map.hpp" />
     <ClInclude Include="Monster.h" />
     <ClInclude Include="MoveableEntity.h" />
+    <ClInclude Include="MovementComponent.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Screen.hpp" />
     <ClInclude Include="SpriteService.h" />
@@ -165,12 +176,21 @@
   <ItemGroup>
     <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="DataModifierComponent.cpp" />
     <ClCompile Include="DrawableElement.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="EntityFactory.cpp" />
+    <ClCompile Include="GameComponent.cpp" />
+    <ClCompile Include="GameElement.cpp" />
+    <ClCompile Include="GameEntity.cpp" />
+    <ClCompile Include="GameEvent.cpp" />
+    <ClCompile Include="GraphicalComponent.cpp" />
     <ClCompile Include="Imp.cpp" />
+    <ClCompile Include="KeyboardEventComponent.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="MoveableEntity.cpp" />
+    <ClCompile Include="MovementComponent.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="SpriteService.cpp" />

@@ -3,16 +3,16 @@
 #include <string>
 #include <sstream>
 
+template<class T>
 class Vector2{
-private:
-    int _x;
-    int _y;
-
 public:
+	T _x;
+	T _y;
+
 	Vector2() : _x(0), _y(0) {}
     Vector2(int x, int y) : _x(x), _y(y) {}
 
-    int x() const {
+    T x() const{
         return _x;
     }
 
@@ -20,7 +20,7 @@ public:
 		this->_x = _x;
     }
 
-    int y() const {
+    T y() const {
         return _y;
     }
 
@@ -48,12 +48,12 @@ public:
 		this->_x -= minus;
 	}
 
-    static Vector2 toIso(const Vector2 vec) 
+    static Vector2<T> toIso(const Vector2<T> vec) 
 	{
         return Vector2(vec._x - vec._y, (vec._x + vec._y) / 2);
     }
 
-    static Vector2 to2D(const Vector2 vec)
+    static Vector2<T> to2D(const Vector2<T> vec)
 	{
         return Vector2((2 * vec._y + vec._x ) / 2, (2 * vec._y - vec._x) / 2);
     }
