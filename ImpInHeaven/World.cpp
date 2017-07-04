@@ -42,7 +42,7 @@ void World::handleElementEventsQueue(GameElement* element) const
 		GameEvent event = element->popEvent();
 		switch (event.type)
 		{
-		case KEYBOARD_INPUT:
+		case MOVEMENT:
 			if (validateMovement(element, event.input_action))
 			{
 				element->validateEvent(event);
@@ -61,10 +61,10 @@ bool World::validateMovement(GameElement* element, EVENT_INPUT_ACTION movement) 
 	switch(movement)
 	{
 	case MOVE_UP: 
-		position._y += 1;
+		position._y -= 1;
 		break;
 	case MOVE_DOWN: 
-		position._y -= 1;
+		position._y += 1;
 		break;
 	case MOVE_LEFT: 
 		position._x -= 1;
@@ -76,10 +76,13 @@ bool World::validateMovement(GameElement* element, EVENT_INPUT_ACTION movement) 
 	default: ;
 	}
 
+	changeElementDirection(position, element);
+
 	if(checkInBounds(position))
 	{
 		if(!map->isWall(position))
 		{
+			//TODO Change it to post-handling (after moving the character)
 			if (map->isTrap(position))
 			{
 				element->setState(DEAD);
@@ -92,9 +95,21 @@ bool World::validateMovement(GameElement* element, EVENT_INPUT_ACTION movement) 
 	return false;
 }
 
+void World::changeElementDirection(Vector2<int> next_direction, GameElement* element)
+{
+	if (next_direction._x > element->getPositionX())
+		element->setDirection(EAST);
+	if (next_direction._x < element->getPositionX())
+		element->setDirection(WEST);
+	if (next_direction._y > element->getPositionY())
+		element->setDirection(SOUTH);
+	if (next_direction._y < element->getPositionY())
+		element->setDirection(NORTH);
+}
+
 bool World::checkInBounds(Vector2<int> position) const
 {
-	return position.x() < map->getWidth() && position.x() > 0 && position.y() < map->getHeight() && position.y() > 0;
+	return position.x() < map->getWidth() && position.x() >= 0 && position.y() < map->getHeight() && position.y() >= 0;
 }
 
 void World::setMap(Map* map)

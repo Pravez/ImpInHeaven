@@ -38,7 +38,6 @@ public :
 	Vector2<int> getTileDimensions() const;
 	Vector2<int> getScreenDimensions() const;
 	SDL_Renderer* getRenderer() const;
-	Imp* getImp() const;
 	SDL_Window * getWindow() const;
 
 	void setCamera(Camera* camera);

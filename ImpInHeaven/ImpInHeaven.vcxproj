@@ -89,9 +89,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Paul\Source\Repos\ImpInHeaven\ImpInHeaven\packages\freetype.2.6.2.1\build\native\include\freetype;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>C:\Users\Paul\Source\Repos\ImpInHeaven\ImpInHeaven\packages\freetype.2.6.2.1\build\native\lib\Win32\v140\static\Release;C:\Users\Paul\Source\Repos\ImpInHeaven\ImpInHeaven\packages\freetype.2.6.2.1\build\native\lib\x64\v140\static\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freetype262d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -143,14 +146,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bird.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="DataAccessorComponent.h" />
     <ClInclude Include="DataModifierComponent.h" />
-    <ClInclude Include="Direction.h" />
-    <ClInclude Include="DrawableElement.h" />
-    <ClInclude Include="Element.h" />
-    <ClInclude Include="Entity.h" />
     <ClInclude Include="EntityFactory.h" />
     <ClInclude Include="EventListenerComponent.h" />
     <ClInclude Include="GameComponent.h" />
@@ -158,40 +156,29 @@
     <ClInclude Include="GameEntity.h" />
     <ClInclude Include="GameEvent.h" />
     <ClInclude Include="GraphicalComponent.h" />
-    <ClInclude Include="Imp.h" />
     <ClInclude Include="KeyboardEventComponent.h" />
     <ClInclude Include="Map.hpp" />
-    <ClInclude Include="Monster.h" />
-    <ClInclude Include="MoveableEntity.h" />
     <ClInclude Include="MovementComponent.h" />
-    <ClInclude Include="Scene.h" />
     <ClInclude Include="Screen.hpp" />
     <ClInclude Include="SpriteService.h" />
-    <ClInclude Include="State.h" />
     <ClInclude Include="Tile.hpp" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="Vector.hpp" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bird.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DataModifierComponent.cpp" />
-    <ClCompile Include="DrawableElement.cpp" />
-    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="GameComponent.cpp" />
     <ClCompile Include="GameElement.cpp" />
     <ClCompile Include="GameEntity.cpp" />
     <ClCompile Include="GameEvent.cpp" />
     <ClCompile Include="GraphicalComponent.cpp" />
-    <ClCompile Include="Imp.cpp" />
     <ClCompile Include="KeyboardEventComponent.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map.cpp" />
-    <ClCompile Include="MoveableEntity.cpp" />
     <ClCompile Include="MovementComponent.cpp" />
-    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="SpriteService.cpp" />
     <ClCompile Include="Tile.cpp" />
@@ -218,6 +205,10 @@
     <Import Project="packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets" Condition="Exists('packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" />
     <Import Project="packages\sdl2_image.v140.redist.2.0.1\build\native\sdl2_image.v140.redist.targets" Condition="Exists('packages\sdl2_image.v140.redist.2.0.1\build\native\sdl2_image.v140.redist.targets')" />
     <Import Project="packages\sdl2_image.v140.2.0.1\build\native\sdl2_image.v140.targets" Condition="Exists('packages\sdl2_image.v140.2.0.1\build\native\sdl2_image.v140.targets')" />
+    <Import Project="packages\sdl2_ttf.v140.redist.2.0.14\build\native\sdl2_ttf.v140.redist.targets" Condition="Exists('packages\sdl2_ttf.v140.redist.2.0.14\build\native\sdl2_ttf.v140.redist.targets')" />
+    <Import Project="packages\sdl2_ttf.v140.2.0.14\build\native\sdl2_ttf.v140.targets" Condition="Exists('packages\sdl2_ttf.v140.2.0.14\build\native\sdl2_ttf.v140.targets')" />
+    <Import Project="packages\freetype.redist.2.7.1.1\build\native\freetype.redist.targets" Condition="Exists('packages\freetype.redist.2.7.1.1\build\native\freetype.redist.targets')" />
+    <Import Project="packages\freetype.2.6.2.1\build\native\freetype.targets" Condition="Exists('packages\freetype.2.6.2.1\build\native\freetype.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -234,5 +225,9 @@
     <Error Condition="!Exists('packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.1.2.8.8\build\native\zlib.v140.windesktop.msvcstl.dyn.rt-dyn.targets'))" />
     <Error Condition="!Exists('packages\sdl2_image.v140.redist.2.0.1\build\native\sdl2_image.v140.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\sdl2_image.v140.redist.2.0.1\build\native\sdl2_image.v140.redist.targets'))" />
     <Error Condition="!Exists('packages\sdl2_image.v140.2.0.1\build\native\sdl2_image.v140.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\sdl2_image.v140.2.0.1\build\native\sdl2_image.v140.targets'))" />
+    <Error Condition="!Exists('packages\sdl2_ttf.v140.redist.2.0.14\build\native\sdl2_ttf.v140.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\sdl2_ttf.v140.redist.2.0.14\build\native\sdl2_ttf.v140.redist.targets'))" />
+    <Error Condition="!Exists('packages\sdl2_ttf.v140.2.0.14\build\native\sdl2_ttf.v140.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\sdl2_ttf.v140.2.0.14\build\native\sdl2_ttf.v140.targets'))" />
+    <Error Condition="!Exists('packages\freetype.redist.2.7.1.1\build\native\freetype.redist.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\freetype.redist.2.7.1.1\build\native\freetype.redist.targets'))" />
+    <Error Condition="!Exists('packages\freetype.2.6.2.1\build\native\freetype.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\freetype.2.6.2.1\build\native\freetype.targets'))" />
   </Target>
 </Project>

@@ -1,7 +1,6 @@
 #ifndef IMPINHEAVEN_CAMERA_HPP
 #define IMPINHEAVEN_CAMERA_HPP
 #include "Vector.hpp"
-#include "Imp.h"
 
 enum CameraMode { FIXED_MODE };
 

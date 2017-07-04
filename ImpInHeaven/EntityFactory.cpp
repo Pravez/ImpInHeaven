@@ -8,5 +8,7 @@ GameEntity* EntityFactory::createPlayerEntity(Screen* screen, SDL_Texture* textu
 	entity->addModifierComponent(new MovementComponent())->setGameElement(entity);
 	entity->setEventListener(new KeyboardEventComponent())->setGameElement(entity);
 
+	entity->setDirection(SOUTH);
+
 	return entity;
 }

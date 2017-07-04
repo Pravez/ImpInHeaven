@@ -16,6 +16,7 @@ public:
 
 	void handleEvent(SDL_Event* event);
 	void handleElementEventsQueue(GameElement* entity) const;
+	static void changeElementDirection(Vector2<int> next_direction, GameElement* element);
 
 	bool validateMovement(GameElement* entity, EVENT_INPUT_ACTION movement) const;
 	bool checkInBounds(Vector2<int> position) const;

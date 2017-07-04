@@ -16,9 +16,6 @@
     <Filter Include="Fichiers sources\utils">
       <UniqueIdentifier>{f0e890e5-a638-4647-aaae-f58170278136}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\scene">
-      <UniqueIdentifier>{5fe8bd0a-bbe9-48bd-9735-96941e01b9d4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\screen">
       <UniqueIdentifier>{43111e51-42d9-40ca-bc8a-d9c22c0603b6}</UniqueIdentifier>
     </Filter>
@@ -30,15 +27,6 @@
     </Filter>
     <Filter Include="Fichiers sources\components\graphics">
       <UniqueIdentifier>{3d086f35-e55e-4c07-9ac6-0ef793a90713}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\old">
-      <UniqueIdentifier>{9a8c977c-c43e-4668-a98f-cbf41d8e5636}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\old\graphic">
-      <UniqueIdentifier>{6dcb93f2-356e-483e-8e05-0b4d85bdff52}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\old\physic">
-      <UniqueIdentifier>{b082f388-ae71-488d-9575-c650b2e2fde7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Fichiers sources\components\io">
       <UniqueIdentifier>{5e86bbe7-be0c-4b78-8355-0b3681fb5801}</UniqueIdentifier>
@@ -67,21 +55,6 @@
     <ClInclude Include="utils.h">
       <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
-    <ClInclude Include="DrawableElement.h">
-      <Filter>Fichiers sources\old\graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="Element.h">
-      <Filter>Fichiers sources\old\graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>Fichiers sources\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Direction.h">
-      <Filter>Fichiers sources\old\graphic</Filter>
-    </ClInclude>
-    <ClInclude Include="State.h">
-      <Filter>Fichiers sources\old\graphic</Filter>
-    </ClInclude>
     <ClInclude Include="Tile.hpp">
       <Filter>Fichiers sources\screen</Filter>
     </ClInclude>
@@ -94,23 +67,8 @@
     <ClInclude Include="Camera.h">
       <Filter>Fichiers sources\screen</Filter>
     </ClInclude>
-    <ClInclude Include="Imp.h">
-      <Filter>Fichiers sources\scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Fichiers sources\old\physic</Filter>
-    </ClInclude>
-    <ClInclude Include="MoveableEntity.h">
-      <Filter>Fichiers sources\old\physic</Filter>
-    </ClInclude>
     <ClInclude Include="SpriteService.h">
       <Filter>Fichiers sources\utils</Filter>
-    </ClInclude>
-    <ClInclude Include="Monster.h">
-      <Filter>Fichiers sources\old\physic</Filter>
-    </ClInclude>
-    <ClInclude Include="Bird.h">
-      <Filter>Fichiers sources\scene</Filter>
     </ClInclude>
     <ClInclude Include="GameElement.h">
       <Filter>Fichiers sources\components\base</Filter>
@@ -156,12 +114,6 @@
     <ClCompile Include="utils.cpp">
       <Filter>Fichiers sources\utils</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>Fichiers sources\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="DrawableElement.cpp">
-      <Filter>Fichiers sources\old\graphic</Filter>
-    </ClCompile>
     <ClCompile Include="Map.cpp">
       <Filter>Fichiers sources\screen</Filter>
     </ClCompile>
@@ -174,20 +126,8 @@
     <ClCompile Include="Camera.cpp">
       <Filter>Fichiers sources\screen</Filter>
     </ClCompile>
-    <ClCompile Include="Imp.cpp">
-      <Filter>Fichiers sources\scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Fichiers sources\old\physic</Filter>
-    </ClCompile>
-    <ClCompile Include="MoveableEntity.cpp">
-      <Filter>Fichiers sources\old\physic</Filter>
-    </ClCompile>
     <ClCompile Include="SpriteService.cpp">
       <Filter>Fichiers sources\utils</Filter>
-    </ClCompile>
-    <ClCompile Include="Bird.cpp">
-      <Filter>Fichiers sources\scene</Filter>
     </ClCompile>
     <ClCompile Include="GameElement.cpp">
       <Filter>Fichiers sources\components\base</Filter>

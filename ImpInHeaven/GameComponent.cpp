@@ -12,7 +12,7 @@ int GameComponent::getPositionX() const
 
 int GameComponent::getPositionY() const
 {
-	return getGameElement()->getPositionX();
+	return getGameElement()->getPositionY();
 }
 
 int GameComponent::getWidth() const

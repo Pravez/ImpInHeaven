@@ -5,16 +5,16 @@ void KeyboardEventComponent::update(SDL_Event* event)
 	if (event->type == SDL_KEYDOWN) {
 		switch (event->key.keysym.sym) {
 		case SDLK_UP:
-			addEvent(GameEvent(KEYBOARD_INPUT, MOVE_UP));
+			addEvent(GameEvent(MOVEMENT, MOVE_UP));
 			break;
 		case SDLK_DOWN:
-			addEvent(GameEvent(KEYBOARD_INPUT, MOVE_DOWN));
+			addEvent(GameEvent(MOVEMENT, MOVE_DOWN));
 			break;
 		case SDLK_RIGHT:
-			addEvent(GameEvent(KEYBOARD_INPUT, MOVE_RIGHT));
+			addEvent(GameEvent(MOVEMENT, MOVE_RIGHT));
 			break;
 		case SDLK_LEFT:
-			addEvent(GameEvent(KEYBOARD_INPUT, MOVE_LEFT));
+			addEvent(GameEvent(MOVEMENT, MOVE_LEFT));
 			break;
 		default:break;
 		}

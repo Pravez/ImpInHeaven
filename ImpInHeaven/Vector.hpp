@@ -61,7 +61,7 @@ public:
 	std::string toString()
     {
 		std::ostringstream stringStream;
-		stringStream << "Vector2: (x: " << this->_x << ", y: " << this->_y << ")";
+		stringStream << "(" << this->_x << "," << this->_y << ")";
 		return stringStream.str();
     }
 };

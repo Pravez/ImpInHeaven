@@ -95,11 +95,6 @@ void Screen::setCamera(Camera* camera)
 	this->camera = camera;
 }
 
-Imp * Screen::getImp() const
-{
-	return map->getImp();
-}
-
 void Screen::setMap(Map* map)
 {
 	this->map = map;

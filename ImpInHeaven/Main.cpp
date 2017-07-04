@@ -39,14 +39,14 @@ int main(int argc, char **argv) {
 	SetUpProgram();
 
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
-	Scene* scene = new Scene();
+	//Scene* scene = new Scene();
 	Map* map = new Map(GRID_WIDTH, GRID_HEIGHT);
 	Camera* camera = new Camera(FIXED_MODE, 1, map->getWidth(), map->getHeight());
 	/*Imp* imp = new Imp(Vector2<int>(7, 7), Vector2<int>(IMP_WIDTH, IMP_HEIGHT), SpriteService::getSprite("imp"));
 	Bird* bird = new Bird(Vector2<int>(9, 9), Vector2<int>(BIRD_WIDTH, BIRD_HEIGHT), SpriteService::getSprite("bird"));*/
 
 	World* world = new World();
-	GameElement* imp = EntityFactory::createPlayerEntity(screen, SpriteService::getSprite("imp"), Vector2<int>(7, 7));
+	GameElement* imp = EntityFactory::createPlayerEntity(screen, SpriteService::getSprite("imp"), Vector2<int>(0, 0));
 	world->setMap(map);
 	world->addElement(imp);;
 
@@ -59,41 +59,11 @@ int main(int argc, char **argv) {
 
     SDL_Event event;
     bool end = false;
-	int color = 255;
 	
     if (screen->getWindow()) {
         while (!end) {
             while (SDL_PollEvent(&event)) {
 				world->handleEvent(&event);
-
-                /* We are only worried about SDL_KEYDOWN and SDL_KEYUP events */
-                /*switch (event.type) {
-                    case SDL_KEYDOWN:
-                        switch(event.key.keysym.sym){
-                            case SDLK_ESCAPE:
-                                end = true;
-                                break;
-							case SDLK_UP:
-								screen->getMap()->moveUp();
-								break;
-							case SDLK_DOWN:
-								screen->getMap()->moveDown();
-								break;
-							case SDLK_RIGHT:
-								screen->getMap()->moveRight();
-								break;
-							case SDLK_LEFT:
-								screen->getMap()->moveLeft();
-								break;
-							case SDLK_a:
-								color = color == 255 ? 0 : 255;
-                            default:break;
-                        }
-                        break;
-
-                    default:
-                        break;
-                }*/
 				if (imp->getState() == DEAD)
 				{
 					end = true;
@@ -104,7 +74,6 @@ int main(int argc, char **argv) {
 			screen->drawGrid();
 			world->update();
 			camera->update();
-			//scene->draw(screen);
 
 			screen->render();
         }

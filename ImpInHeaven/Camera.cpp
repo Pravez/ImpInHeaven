@@ -4,6 +4,7 @@
 void Camera::setTrackingOn(GameElement* element)
 {
 	this->tracked = element;
+	update();
 }
 
 void Camera::update()
