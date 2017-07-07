@@ -146,7 +146,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AutonomousBehaviorComponent.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ChronoService.h" />
     <ClInclude Include="DataAccessorComponent.h" />
     <ClInclude Include="DataModifierComponent.h" />
     <ClInclude Include="EntityFactory.h" />
@@ -167,13 +169,13 @@
     <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AutonomousBehaviorComponent.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="DataModifierComponent.cpp" />
     <ClCompile Include="EntityFactory.cpp" />
     <ClCompile Include="GameComponent.cpp" />
     <ClCompile Include="GameElement.cpp" />
     <ClCompile Include="GameEntity.cpp" />
-    <ClCompile Include="GameEvent.cpp" />
     <ClCompile Include="GraphicalComponent.cpp" />
     <ClCompile Include="KeyboardEventComponent.cpp" />
     <ClCompile Include="Main.cpp" />

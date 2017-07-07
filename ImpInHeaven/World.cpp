@@ -18,7 +18,11 @@ void World::update()
 		element->updateModifiers();
 	}
 
-	for(auto element : entities)
+}
+
+void World::render()
+{
+	for (auto element : entities)
 	{
 		element->updateAccessors();
 	}

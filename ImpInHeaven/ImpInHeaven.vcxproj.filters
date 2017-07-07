@@ -43,6 +43,9 @@
     <Filter Include="Fichiers sources\game\entities">
       <UniqueIdentifier>{73fa0117-f1b6-4a75-8a9e-825815b8e1e3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\components\ai">
+      <UniqueIdentifier>{ffad8f96-2208-4582-b00f-0445a9f5ac89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -106,6 +109,12 @@
     <ClInclude Include="GameEntity.h">
       <Filter>Fichiers sources\game\entities</Filter>
     </ClInclude>
+    <ClInclude Include="AutonomousBehaviorComponent.h">
+      <Filter>Fichiers sources\components\ai</Filter>
+    </ClInclude>
+    <ClInclude Include="ChronoService.h">
+      <Filter>Fichiers sources\utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -147,9 +156,6 @@
     <ClCompile Include="KeyboardEventComponent.cpp">
       <Filter>Fichiers sources\components\io</Filter>
     </ClCompile>
-    <ClCompile Include="GameEvent.cpp">
-      <Filter>Fichiers sources\components\events</Filter>
-    </ClCompile>
     <ClCompile Include="World.cpp">
       <Filter>Fichiers sources\game</Filter>
     </ClCompile>
@@ -158,6 +164,9 @@
     </ClCompile>
     <ClCompile Include="GameEntity.cpp">
       <Filter>Fichiers sources\game\entities</Filter>
+    </ClCompile>
+    <ClCompile Include="AutonomousBehaviorComponent.cpp">
+      <Filter>Fichiers sources\components\ai</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

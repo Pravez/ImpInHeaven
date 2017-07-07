@@ -20,6 +20,7 @@
 #include "SpriteService.h"
 #include "World.h"
 #include "EntityFactory.h"
+#include <chrono>
 
 #define DBOUT( s )            \
 {                             \
@@ -31,6 +32,9 @@
 #define WINDOW_WIDTH 640
 #define WINDOW_HEIGHT 480
 
+using namespace std::chrono_literals;
+constexpr std::chrono::nanoseconds timestep(16ms); //1/60 = 16ms
+
 int main(int argc, char **argv) {
 	CHECK_INIT_SDL(SDL_Init(SDL_INIT_VIDEO));// | SDL_INIT_AUDIO));
 	//SDL_SetVideoMode(largeur, hauteur, nombre de couleurs, options);
@@ -39,29 +43,30 @@ int main(int argc, char **argv) {
 	SetUpProgram();
 
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
-	//Scene* scene = new Scene();
 	Map* map = new Map(GRID_WIDTH, GRID_HEIGHT);
 	Camera* camera = new Camera(FIXED_MODE, 1, map->getWidth(), map->getHeight());
-	/*Imp* imp = new Imp(Vector2<int>(7, 7), Vector2<int>(IMP_WIDTH, IMP_HEIGHT), SpriteService::getSprite("imp"));
-	Bird* bird = new Bird(Vector2<int>(9, 9), Vector2<int>(BIRD_WIDTH, BIRD_HEIGHT), SpriteService::getSprite("bird"));*/
-
 	World* world = new World();
 	GameElement* imp = EntityFactory::createPlayerEntity(screen, SpriteService::getSprite("imp"), Vector2<int>(0, 0));
+
 	world->setMap(map);
 	world->addElement(imp);;
-
-	/*screen->getMap()->setImp(scene->addPlayer(imp));
-	screen->getMap()->addMonster(scene->addMonster(bird));*/
 	screen->setCamera(camera);
 	screen->setMap(map);
 	camera->setTrackingOn(imp);
 		
+	using clock = std::chrono::high_resolution_clock;
+	std::chrono::nanoseconds lag(0ns);
+	auto time_start = clock::now();
 
     SDL_Event event;
     bool end = false;
 	
     if (screen->getWindow()) {
         while (!end) {
+			auto delta_time = clock::now() - time_start;
+			time_start = clock::now();
+			lag += std::chrono::duration_cast<std::chrono::nanoseconds>(delta_time);
+
             while (SDL_PollEvent(&event)) {
 				world->handleEvent(&event);
 				if (imp->getState() == DEAD)
@@ -70,12 +75,18 @@ int main(int argc, char **argv) {
 				}
 
             }
-			//screen->getMap()->updateMonsters();
-			screen->drawGrid();
-			world->update();
-			camera->update();
 
+			while (lag >= timestep) {
+				lag -= timestep;
+
+				world->update();
+			}
+
+			screen->drawGrid();
+			world->render();
+			camera->update();
 			screen->render();
+			
         }
 
         SDL_DestroyWindow(screen->getWindow());

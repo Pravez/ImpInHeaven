@@ -13,6 +13,7 @@ public:
 	World();
 	void addElement(GameElement* entity);
 	void update();
+	void render();
 
 	void handleEvent(SDL_Event* event);
 	void handleElementEventsQueue(GameElement* entity) const;
