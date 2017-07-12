@@ -52,7 +52,11 @@ void World::handleElementEventsQueue(GameElement* element) const
 			{
 				element->validateEvent(event);
 			}
+			break;
 		case MOUSE_INPUT: 
+			break;
+		case TIME:
+			element->validateEvent(event);
 			break;
 		default: ;
 		}

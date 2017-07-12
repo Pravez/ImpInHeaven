@@ -41,6 +41,12 @@ int main(int argc, char **argv) {
 	//SDL_SetVideoMode(largeur, hauteur, nombre de couleurs, options);
 	srand(time(NULL));
 
+	AllocConsole();
+	freopen("conin$", "r", stdin);
+	freopen("conout$", "w", stdout);
+	freopen("conout$", "w", stderr);
+
+
 	SetUpProgram();
 
 	Screen * screen = new Screen(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -63,6 +69,8 @@ int main(int argc, char **argv) {
 
     SDL_Event event;
     bool end = false;
+
+
 	
     if (screen->getWindow()) {
         while (!end) {
@@ -82,7 +90,7 @@ int main(int argc, char **argv) {
 			while (lag >= timestep) {
 				lag -= timestep;
 
-				world->update(delta_time);
+				world->update(timestep);
 			}
 
 			screen->drawGrid();
@@ -97,6 +105,8 @@ int main(int argc, char **argv) {
 
 	delete(screen);
     SDL_Quit();
+
+	FreeConsole();
 
     return 0;
 }

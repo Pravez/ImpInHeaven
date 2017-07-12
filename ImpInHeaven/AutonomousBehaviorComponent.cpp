@@ -2,7 +2,7 @@
 
 void AutonomousBehaviorComponent::update(t_delta delta)
 {
-	while(getEventAction(TIME, true))
+	while(getEventAction(TIME, true) != NO_ACTION)
 	{
 		if(goal != getPosition())
 		{

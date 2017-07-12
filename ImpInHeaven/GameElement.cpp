@@ -9,9 +9,8 @@ GameElement::GameElement()
 	init();
 }
 
-GameElement::GameElement(const Vector2<int> position)
+GameElement::GameElement(const Vector2<int> position) : position(position), listener(false)
 {
-	this->position = position;
 	init();
 }
 
@@ -66,9 +65,14 @@ State& GameElement::getState()
 	return state;
 }
 
+bool& GameElement::getListenerBoolean()
+{
+	return listener;
+}
+
 bool GameElement::hasEventListener() const
 {
-	return eventListener != nullptr;
+	return listener;
 }
 
 void GameElement::setPositionX(int x)

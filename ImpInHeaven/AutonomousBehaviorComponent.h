@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "DataModifierComponent.h"
 
+
 class AutonomousBehaviorComponent : public DataModifierComponent
 {
 private:

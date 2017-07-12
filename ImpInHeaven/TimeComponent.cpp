@@ -1,12 +1,14 @@
 ﻿#include "TimeComponent.h"
+#include <iostream>
 
 void TimeComponent::update(t_delta delta)
 {
-	elapsed_time = delta - last_update;
-	last_update = delta;
+	elapsed_time = elapsed_time + delta;
 
 	if(elapsed_time >= interval)
 	{
-		addEvent(GameEvent(TIME, NO_ACTION));
+		std::cout << "Time event triggered" << std::endl;
+		addEvent(GameEvent(TIME, TIMER_ALERT));
+		elapsed_time = elapsed_time - interval;
 	}
 }

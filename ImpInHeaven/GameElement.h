@@ -32,6 +32,7 @@ private:
 	std::vector<DataModifierComponent*> modifierComponents;
 
 	EventListenerComponent* eventListener;
+	bool listener;
 
 	std::queue<GameEvent> events;
 	std::multimap<EVENT_TYPE, EVENT_INPUT_ACTION> validatedEvents;
@@ -50,6 +51,7 @@ public:
 	Vector2<int> & getPosition();
 	Direction & getDirection();
 	State & getState();
+	bool & getListenerBoolean();
 
 	bool hasEventListener() const;
 

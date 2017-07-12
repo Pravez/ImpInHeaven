@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "DataModifierComponent.h"
 
-#define DEFAULT_INTERVAL
+#define DEFAULT_INTERVAL std::chrono::seconds(1)
 
 class TimeComponent : public DataModifierComponent
 {
@@ -11,8 +11,8 @@ private:
 	t_delta last_update;
 
 public:
-	TimeComponent() : interval(DEFAULT_INTERVAL) {}
-	TimeComponent(t_delta interval) : interval(interval) {}
+	TimeComponent() : interval(DEFAULT_INTERVAL), elapsed_time(std::chrono::seconds(0)) {}
+	TimeComponent(t_delta interval) : interval(interval), elapsed_time(std::chrono::seconds(0)) {}
 	~TimeComponent() {}
 
 

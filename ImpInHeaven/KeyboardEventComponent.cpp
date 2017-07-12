@@ -20,3 +20,8 @@ void KeyboardEventComponent::update(SDL_Event* event)
 		}
 	}
 }
+
+void KeyboardEventComponent::setListenerBoolTrue() const
+{
+	this->getGameElement()->getListenerBoolean() = true;
+}

@@ -13,4 +13,6 @@ protected:
 	void setHeight(int height) const;
 	void setPosition(Vector2<int> position) const;
 	void setDirection(Direction direction) const;
+
+	void setListenerBoolean(bool val) const;
 };
