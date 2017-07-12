@@ -1,6 +1,6 @@
 ﻿#include "MovementComponent.h"
 
-void MovementComponent::update()
+void MovementComponent::update(t_delta delta)
 {
 	Vector2<int> next_position;
 

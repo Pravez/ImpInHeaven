@@ -46,6 +46,9 @@
     <Filter Include="Fichiers sources\components\ai">
       <UniqueIdentifier>{ffad8f96-2208-4582-b00f-0445a9f5ac89}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\components\time">
+      <UniqueIdentifier>{d516a9e2-5942-4a25-a7d9-6a89cd92fa1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -115,6 +118,9 @@
     <ClInclude Include="ChronoService.h">
       <Filter>Fichiers sources\utils</Filter>
     </ClInclude>
+    <ClInclude Include="TimeComponent.h">
+      <Filter>Fichiers sources\components\time</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -167,6 +173,9 @@
     </ClCompile>
     <ClCompile Include="AutonomousBehaviorComponent.cpp">
       <Filter>Fichiers sources\components\ai</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeComponent.cpp">
+      <Filter>Fichiers sources\components\time</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 #include <vector>
 #include "GameElement.h"
 #include "Map.hpp"
+#include "ChronoService.h"
 
 class World
 {
@@ -12,8 +13,8 @@ private:
 public:
 	World();
 	void addElement(GameElement* entity);
-	void update();
-	void render();
+	void update(t_delta delta);
+	void render(t_delta delta);
 
 	void handleEvent(SDL_Event* event);
 	void handleElementEventsQueue(GameElement* entity) const;

@@ -142,19 +142,6 @@ GameEvent GameElement::popEvent()
 	return event;
 }
 
-void GameElement::update()
-{
-	for(auto mc : modifierComponents)
-	{
-		mc->update();
-	}
-
-	for(auto ac : accessorComponents)
-	{
-		ac->update();	
-	}
-}
-
 void GameElement::handleEvents(SDL_Event* event)
 {
 	if(hasEventListener())
@@ -163,19 +150,19 @@ void GameElement::handleEvents(SDL_Event* event)
 	}
 }
 
-void GameElement::updateModifiers()
+void GameElement::updateModifiers(t_delta delta)
 {
 	for (auto mc : modifierComponents)
 	{
-		mc->update();
+		mc->update(delta);
 	}
 }
 
-void GameElement::updateAccessors()
+void GameElement::updateAccessors(t_delta delta)
 {
 	for (auto ac : accessorComponents)
 	{
-		ac->update();
+		ac->update(delta);
 	}
 }
 

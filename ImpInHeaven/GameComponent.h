@@ -25,5 +25,5 @@ public:
 
 	void addEvent(GameEvent event) const;
 	EVENT_INPUT_ACTION getEventAction(EVENT_TYPE type, bool pop) const;
-	virtual void update() = 0;
+	virtual void update(t_delta delta) = 0;
 };

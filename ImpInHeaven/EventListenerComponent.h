@@ -6,7 +6,7 @@ class EventListenerComponent : public DataModifierComponent
 public:
 	EventListenerComponent() {}
 
-	void update() override {}
+	void update(t_delta delta) override {}
 
 	virtual void update(SDL_Event* event) = 0;
 };

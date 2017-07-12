@@ -64,6 +64,17 @@ public:
 		stringStream << "(" << this->_x << "," << this->_y << ")";
 		return stringStream.str();
     }
+
+	bool operator ==(const Vector2<T>& vector) const
+	{
+		return this->_x == vector._x && this->_y == vector._y;
+	}
+
+	bool operator !=(const Vector2<T>& vector) const
+	{
+		return this->_x != vector._x || this->_y != vector._y;
+	}
 };
+
 
 #endif //IMPINHEAVEN_VECTOR_HPP

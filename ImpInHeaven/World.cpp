@@ -1,5 +1,6 @@
 ﻿#include "World.h"
 
+
 World::World()
 {
 
@@ -10,21 +11,21 @@ void World::addElement(GameElement* element)
 	this->entities.push_back(element);
 }
 
-void World::update()
+void World::update(t_delta delta)
 {
 	for (auto element : entities)
 	{
 		handleElementEventsQueue(element);
-		element->updateModifiers();
+		element->updateModifiers(delta);
 	}
 
 }
 
-void World::render()
+void World::render(t_delta delta)
 {
 	for (auto element : entities)
 	{
-		element->updateAccessors();
+		element->updateAccessors(delta);
 	}
 }
 

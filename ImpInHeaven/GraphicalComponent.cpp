@@ -38,7 +38,7 @@ void GraphicalComponent::updateDestinationRectanglePositionsWithBaseData()
 	this->destination_rectangle.y = getPositionY();
 }
 
-void GraphicalComponent::update()
+void GraphicalComponent::update(t_delta delta)
 {
 	draw();
 }

@@ -7,6 +7,8 @@
 #include "GameEvent.h"
 #include <map>
 #include "State.h"
+#include "ChronoService.h"
+
 
 #define DEFAULT_WIDTH 50
 #define DEFAULT_HEIGHT 80
@@ -69,8 +71,7 @@ public:
 	void validateEvent(GameEvent event);
 	EVENT_INPUT_ACTION getValidatedEvent(EVENT_TYPE key, bool pop);
 
-	virtual void update();
-	virtual void updateModifiers();
-	virtual void updateAccessors();
+	virtual void updateModifiers(t_delta delta);
+	virtual void updateAccessors(t_delta delta);
 	virtual void handleEvents(SDL_Event* event);
 };

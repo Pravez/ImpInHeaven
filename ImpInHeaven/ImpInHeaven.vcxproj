@@ -164,6 +164,7 @@
     <ClInclude Include="Screen.hpp" />
     <ClInclude Include="SpriteService.h" />
     <ClInclude Include="Tile.hpp" />
+    <ClInclude Include="TimeComponent.h" />
     <ClInclude Include="utils.h" />
     <ClInclude Include="Vector.hpp" />
     <ClInclude Include="World.h" />
@@ -184,6 +185,7 @@
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="SpriteService.cpp" />
     <ClCompile Include="Tile.cpp" />
+    <ClCompile Include="TimeComponent.cpp" />
     <ClCompile Include="utils.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>

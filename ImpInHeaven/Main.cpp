@@ -21,6 +21,7 @@
 #include "World.h"
 #include "EntityFactory.h"
 #include <chrono>
+#include "ChronoService.h"
 
 #define DBOUT( s )            \
 {                             \
@@ -47,9 +48,11 @@ int main(int argc, char **argv) {
 	Camera* camera = new Camera(FIXED_MODE, 1, map->getWidth(), map->getHeight());
 	World* world = new World();
 	GameElement* imp = EntityFactory::createPlayerEntity(screen, SpriteService::getSprite("imp"), Vector2<int>(0, 0));
+	GameElement* enemy = EntityFactory::createIAEntity(screen, SpriteService::getSprite("imp"), Vector2<int>(0, 0));
 
 	world->setMap(map);
-	world->addElement(imp);;
+	world->addElement(imp);
+	world->addElement(enemy);
 	screen->setCamera(camera);
 	screen->setMap(map);
 	camera->setTrackingOn(imp);
@@ -79,11 +82,11 @@ int main(int argc, char **argv) {
 			while (lag >= timestep) {
 				lag -= timestep;
 
-				world->update();
+				world->update(delta_time);
 			}
 
 			screen->drawGrid();
-			world->render();
+			world->render(delta_time);
 			camera->update();
 			screen->render();
 			

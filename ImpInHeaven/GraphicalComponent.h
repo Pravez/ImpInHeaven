@@ -27,7 +27,7 @@ public:
 	
 	void updateDestinationRectanglePositionsWithBaseData();
 
-	void update() override;
+	void update(t_delta delta) override;
 
 	virtual void draw();
 };

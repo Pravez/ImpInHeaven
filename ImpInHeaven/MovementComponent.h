@@ -8,6 +8,6 @@ public:
 	MovementComponent() {}
 	virtual ~MovementComponent() {}
 
-	void update() override;
+	void update(t_delta delta) override;
 	void move(Vector2<int> to_position) const;
 };
