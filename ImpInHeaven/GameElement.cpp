@@ -9,7 +9,7 @@ GameElement::GameElement()
 	init();
 }
 
-GameElement::GameElement(const Vector2<int> position) : position(position), listener(false)
+GameElement::GameElement(const Vector2<int> position) : position(position)
 {
 	init();
 }
@@ -65,14 +65,9 @@ State& GameElement::getState()
 	return state;
 }
 
-bool& GameElement::getListenerBoolean()
-{
-	return listener;
-}
-
 bool GameElement::hasEventListener() const
 {
-	return listener;
+	return !listeners.empty();
 }
 
 void GameElement::setPositionX(int x)
@@ -123,9 +118,9 @@ DataModifierComponent* GameElement::addModifierComponent(DataModifierComponent* 
 	return component;
 }
 
-EventListenerComponent* GameElement::setEventListener(EventListenerComponent* eventListener)
+EventListenerComponent* GameElement::addEventListener(EventListenerComponent* eventListener)
 {
-	this->eventListener = eventListener;
+	this->listeners.push_back(eventListener);
 	return eventListener;
 }
 
@@ -148,9 +143,9 @@ GameEvent GameElement::popEvent()
 
 void GameElement::handleEvents(SDL_Event* event)
 {
-	if(hasEventListener())
+	for(auto listener : listeners)
 	{
-		eventListener->update(event);
+		listener->update(event);
 	}
 }
 

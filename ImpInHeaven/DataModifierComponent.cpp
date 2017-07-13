@@ -30,8 +30,3 @@ void DataModifierComponent::setDirection(Direction direction) const
 {
 	this->getGameElement()->getDirection() = direction;
 }
-
-void DataModifierComponent::setListenerBoolean(bool val) const
-{
-	this->getGameElement()->getListenerBoolean() = val;
-}

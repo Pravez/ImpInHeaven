@@ -27,12 +27,10 @@ private:
 
 	Direction direction;
 	State state;
-
 	std::vector<DataAccessorComponent*> accessorComponents;
 	std::vector<DataModifierComponent*> modifierComponents;
 
-	EventListenerComponent* eventListener;
-	bool listener;
+	std::vector<EventListenerComponent*> listeners;
 
 	std::queue<GameEvent> events;
 	std::multimap<EVENT_TYPE, EVENT_INPUT_ACTION> validatedEvents;
@@ -51,7 +49,6 @@ public:
 	Vector2<int> & getPosition();
 	Direction & getDirection();
 	State & getState();
-	bool & getListenerBoolean();
 
 	bool hasEventListener() const;
 
@@ -65,7 +62,7 @@ public:
 
 	DataAccessorComponent* addAccessorComponent(DataAccessorComponent* component);
 	DataModifierComponent* addModifierComponent(DataModifierComponent* component);
-	EventListenerComponent* setEventListener(EventListenerComponent* eventListener);
+	EventListenerComponent* addEventListener(EventListenerComponent* eventListener);
 
 	void addEvent(GameEvent event);
 	bool hasEvent() const;
