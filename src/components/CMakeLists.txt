@@ -1,4 +1,4 @@
-SET(COMPONENTS_SOURCES position.hpp)
+SET(COMPONENTS_SOURCES position.hpp direction.hpp)
 
 SET(COMPONENTS_LIB IIH_Components)
 

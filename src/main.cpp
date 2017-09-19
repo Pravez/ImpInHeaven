@@ -1,5 +1,6 @@
 #include <entityx/entityx.h>
 #include "components/position.hpp"
+#include "logic/Level.hpp"
 #include <SFML/Graphics.hpp>
 
 using namespace entityx;
@@ -17,7 +18,7 @@ int main(int argc, char**argv) {
     printf("%f, %f\n", position.get()->x, position.get()->y);
 
 
-    sf::Window App(sf::VideoMode(800, 600), "ImpInHeaven");
+    /*sf::Window App(sf::VideoMode(800, 600), "ImpInHeaven");
 
     while (App.isOpen()) {
         sf::Event event;
@@ -26,7 +27,12 @@ int main(int argc, char**argv) {
                 App.close();
         }
         App.display();
+    }*/
 
+    Level level;
+
+    while(true) {
+        level.update(0.1);
     }
 
     return EXIT_SUCCESS;
