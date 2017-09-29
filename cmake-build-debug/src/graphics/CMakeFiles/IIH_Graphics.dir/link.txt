@@ -1,0 +1,2 @@
+/usr/bin/ar qc libIIH_Graphics.a  CMakeFiles/IIH_Graphics.dir/IsometricMapSprite.cpp.o
+/usr/bin/ranlib libIIH_Graphics.a

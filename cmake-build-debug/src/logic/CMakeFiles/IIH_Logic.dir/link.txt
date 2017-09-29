@@ -1,0 +1,2 @@
+/usr/bin/ar qc libIIH_Logic.a  CMakeFiles/IIH_Logic.dir/Level.cpp.o
+/usr/bin/ranlib libIIH_Logic.a

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ImpInHeaven"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\src\;CMake Files\src\components\;CMake Files\src\logic\;CMake Files\src\graphics\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Main_Executable">
+				<Option output="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Main_Executable" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/i686-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Main_Executable"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Main_Executable/fast">
+				<Option output="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Main_Executable" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/i686-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 Main_Executable/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IIH_Components">
+				<Option output="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/libIIH_Components.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/i686-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/Makefile&quot;  VERBOSE=1 IIH_Components"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IIH_Components/fast">
+				<Option output="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/libIIH_Components.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/i686-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/Makefile&quot;  VERBOSE=1 IIH_Components/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/components/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IIH_Logic">
+				<Option output="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/libIIH_Logic.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/i686-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/Makefile&quot;  VERBOSE=1 IIH_Logic"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IIH_Logic/fast">
+				<Option output="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/libIIH_Logic.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/i686-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/Makefile&quot;  VERBOSE=1 IIH_Logic/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/logic/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IIH_Graphics">
+				<Option output="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/libIIH_Graphics.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/i686-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/Makefile&quot;  VERBOSE=1 IIH_Graphics"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="IIH_Graphics/fast">
+				<Option output="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/libIIH_Graphics.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/i686-pc-linux-gnu"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/../../../../include/c++/7.2.0/backward"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/i686-pc-linux-gnu/7.2.0/include-fixed"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/Makefile&quot;  VERBOSE=1 IIH_Graphics/fast"/>
+					<CompileFile command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j2 -f &quot;/home/howl/Documents/ImpInHeaven/cmake-build-debug/src/graphics/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/components/direction.hpp">
+			<Option target="IIH_Components"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/components/position.hpp">
+			<Option target="IIH_Components"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/graphics/IsometricMapSprite.cpp">
+			<Option target="IIH_Graphics"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/graphics/IsometricMapSprite.hpp">
+			<Option target="IIH_Graphics"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/graphics/utils/utils.hpp">
+			<Option target="IIH_Graphics"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/logic/Level.cpp">
+			<Option target="IIH_Logic"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/logic/Level.hpp">
+			<Option target="IIH_Logic"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/logic/systems/MovementSystem.hpp">
+			<Option target="IIH_Logic"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/logic/systems/events/CollisionSystem.hpp">
+			<Option target="IIH_Logic"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/logic/systems/events/DebugSystem.hpp">
+			<Option target="IIH_Logic"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/main.cpp">
+			<Option target="Main_Executable"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/components/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\components\"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/logic/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\logic\"/>
+		</Unit>
+		<Unit filename="/home/howl/Documents/ImpInHeaven/src/graphics/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\graphics\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

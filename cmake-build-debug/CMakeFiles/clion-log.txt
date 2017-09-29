@@ -1,0 +1,7 @@
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/howl/Documents/ImpInHeaven
+-- Found SFML 2.4.2 in /usr/include
+-- Configuring done
+CMake Error: Cannot determine link language for target "IIH_Components".
+CMake Error: CMake can not determine linker language for target: IIH_Components
+-- Generating done
+-- Build files have been written to: /home/howl/Documents/ImpInHeaven/cmake-build-debug
